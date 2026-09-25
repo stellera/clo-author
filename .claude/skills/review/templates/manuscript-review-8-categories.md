@@ -43,6 +43,10 @@ Extracted from `writer-critic.md`. Used by the writer-critic agent for manuscrip
 - Effect sizes stated with units ("4.2 percentage points", not "the coefficient is significant")
 - Comparisons to prior literature include specific magnitudes from cited papers
 - No stale numbers (values that don't match current output files)
+- If a valid Distilled Style Bundle is active, read `.claude/references/style-bundle/CLAIM_EVIDENCE_RULES.md` and verify that wording strength matches the evidence type
+- Flag mechanism claims that rely only on heterogeneity or indirect patterns when the bundle requires calibrated language such as "consistent with" or "suggests"
+- For every distilled claim-evidence violation, cite the corresponding style rule ID
+- Do not double-deduct a violation already fully penalized under a content invariant; cite both authorities and apply the higher-severity deduction once
 
 **Claim-source map verification (INV-22):**
 - Does `quality_reports/claim_source_map_{project}.md` exist? If not: -15
@@ -74,7 +78,9 @@ Extracted from `writer-critic.md`. Used by the writer-critic agent for manuscrip
 
 ## 4. Writing Quality
 
-Run the 24-pattern AI detection check from the Writer's cleanup pass:
+Run the 24-pattern AI detection check from the Writer's cleanup pass.
+
+If a valid Distilled Style Bundle is active, also read `.claude/references/style-bundle/FORBIDDEN_PATTERNS.md`. Treat corpus-derived forbidden patterns as additional checks. Do not penalize a phrase merely because it is absent from the corpus; only enforce patterns explicitly classified as forbidden/anti-patterns.
 
 **Content patterns:**
 - Significance inflation ("pivotal moment", "transformative impact", "groundbreaking") -- -3 per, max -9
@@ -140,11 +146,35 @@ Verifier-lite checks:
 
 ---
 
-## 7. Voice Fidelity
+## 7. Style Fidelity
 
-**Only scored when `.claude/references/personal-style-guide.md` contains real content (not the template).**
+### 7A. Distilled Style Compliance
 
-Compare the draft against the style guide:
+**Scored when a valid Distilled Style Bundle is active.**
+
+Read:
+- `.claude/references/style-bundle/STYLE_SPEC.json` — authoritative
+- `.claude/references/style-bundle/SECTION_GRAMMARS.md` — target-section rhetorical grammar
+- `.claude/references/style-bundle/STYLE_CRITIC_CHECKS.md` — operational checks
+
+Check:
+- HARD_RULE compliance
+- target-section rhetorical grammar when applicable
+- paragraph function discipline
+- evidence-before-interpretation ordering when required
+- transition/closing behavior explicitly encoded in the bundle
+- STRONG_DEFAULT drift only when it materially harms coherence
+- no penalties for OPTIONAL_STYLE differences
+
+Every finding must cite a style rule ID. If Markdown and JSON conflict, `STYLE_SPEC.json` wins.
+
+If `STYLE_SPEC.json` exists but required companion files are missing, report **STYLE BUNDLE INVALID** and skip 7A scoring rather than guessing.
+
+### 7B. Personal Voice Fidelity
+
+**Scored only when `.claude/references/personal-style-guide.md` contains real content (not the template).**
+
+Compare the draft against the personal style guide:
 
 | Issue | Deduction |
 |-------|-----------|
@@ -155,7 +185,9 @@ Compare the draft against the style guide:
 | Hedging frequency doesn't match documented pattern | -3 |
 | Em dash rate deviates significantly from guide | -2 |
 
-If the style guide is still a template, report: "Voice fidelity not scored -- style guide not yet extracted. Run `/write style-guide [paper-dir]` to enable."
+Personal voice is subordinate to distilled claim-evidence rules and HARD_RULES.
+
+If the personal style guide is still a template, report: "Personal voice fidelity not scored -- personal style guide not yet extracted."
 
 ---
 
@@ -171,7 +203,7 @@ If the style guide is still a template, report: "Voice fidelity not scored -- st
 
 ## Standalone Mode
 
-When invoked via `/review [file.tex]` or `/review --proofread`, run categories **4, 5, 6, 8 only** (writing quality + LaTeX + compilation + notation). No strategy alignment -- just prose and format quality.
+When invoked via `/review [file.tex]` or `/review --proofread`, run categories **4, 5, 6, 7, 8** (writing quality + LaTeX + compilation + style fidelity + notation). No strategy alignment.
 
 When invoked via `/review --all` or `/review --peer`, run all 8 categories.
 
@@ -193,7 +225,9 @@ When invoked via `/review --all` or `/review --peer`, run all 8 categories.
 ## Writing Quality: [CLEAN/AI PATTERNS FOUND/NEEDS REWRITE]
 ## LaTeX and Format: [COMPLIANT/ISSUES/NON-COMPLIANT]
 ## Compilation: [PASS/WARNINGS/FAIL]
-## Voice Fidelity: [MATCH/DRIFT/NOT SCORED]
+## Style Fidelity: [MATCH/DRIFT/NOT SCORED]
+- Distilled style: [MATCH/DRIFT/INVALID/NOT ACTIVE]
+- Personal voice: [MATCH/DRIFT/NOT SCORED]
 ## Notation Consistency: [CONSISTENT/INCONSISTENCIES]
 
 ## Score Breakdown
