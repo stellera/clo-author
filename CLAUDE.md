@@ -20,7 +20,7 @@
 - **Quality gates** -- weighted aggregate score; nothing ships below 80/100; see `quality.md`
 - **Worker-critic pairs** -- every creator has a paired critic; critics never edit files
 - **Auto-memory** -- corrections and preferences are saved automatically via Claude Code's built-in memory system
-- **Distilled style policy** -- when `writing_style/STYLE_SPEC.json` exists, its evidence-calibrated writing rules are loaded automatically for paper drafting and review
+- **Two-layer writing policy** -- Scientific Style governs evidence/argument; Elite Economics Voice governs high-quality prose realization
 
 ---
 
@@ -38,7 +38,9 @@
 [YOUR-PROJECT]/
 ├── CLAUDE.MD                    # This file
 ├── .claude/                     # Rules, skills, agents, hooks
-│   └── references/style-bundle/ # Drop-in distilled scientific writing policy
+│   └── references/
+│       ├── style-bundle/        # Distilled scientific/rhetorical policy
+│       └── elite-econ-voice/    # Elite empirical-economics prose realization
 ├── Bibliography_base.bib        # Centralized bibliography
 ├── paper/                       # Main LaTeX manuscript (source of truth)
 │   ├── main.tex                 # Primary paper file
@@ -57,33 +59,49 @@
 ├── quality_reports/             # Plans, session logs, reviews, scores
 ├── explorations/                # Research sandbox (see rules)
 ├── templates/                   # Session log, quality report templates
-├── writing_style/               # Distilled scientific writing policy (upgrade-safe)
 └── master_supporting_docs/      # Reference papers and data docs
 ```
 
 ---
 
-## Distilled Writing Style Integration
+## Writing Style Integration
 
-If `writing_style/STYLE_SPEC.json` exists and is non-empty, the distilled Style Bundle is **active** for all manuscript drafting, revision, proofreading, and writer-critic review.
+Clo-Author uses two separate corpus-derived layers.
 
-Load style resources in this order:
-1. `writing_style/STYLE_SPEC.json` — authoritative policy
-2. `writing_style/CLAIM_EVIDENCE_RULES.md` — claim/evidence calibration
-3. `writing_style/SECTION_GRAMMARS.md` — use only the target section's relevant grammar
-4. `writing_style/FORBIDDEN_PATTERNS.md` — cleanup and review
-5. `writing_style/STYLE_CRITIC_CHECKS.md` — critic only
-6. `writing_style/STYLE_EXAMPLES.md` — on demand only
-7. `.claude/references/personal-style-guide.md` — optional personal voice overlay
+### Layer 1 — Distilled Scientific Style
+
+Active when `.claude/references/style-bundle/STYLE_SPEC.md` exists.
+
+Load:
+1. `STYLE_MANIFEST.md`
+2. relevant rule IDs from `STYLE_SPEC.md`
+3. `CLAIM_EVIDENCE_RULES.md`
+4. target-section grammar from `SECTION_GRAMMARS.md`
+5. relevant anti-patterns/checks
+
+This layer governs claim strength, evidence order, rhetorical architecture, mechanism language, robustness logic, and section discipline.
+
+### Layer 2 — Elite Economics Voice
+
+Active when `.claude/references/elite-econ-voice/VOICE_SPEC.md` exists.
+
+Load:
+1. `VOICE_MANIFEST.md`
+2. target-section EV-SIG / EV-DEF / EV-AVOID rules from `VOICE_SPEC.md`
+3. relevant move realization, hedging, rhythm, transition, and citation resources
+4. `VOICE_CRITIC_CHECKS.md` for preflight/review
+
+This layer governs linguistic realization: research-agent syntax, verb choice, magnitude integration, contrasts, local hedging, clause order, transitions, citation voice, and paragraph rhythm. It must never strengthen a claim beyond the Scientific Style permission.
+
+### Optional Personal Voice
+
+`.claude/references/personal-style-guide.md` is a lower-priority optional overlay. It is not required when the corpus-derived bundles are active.
 
 Conflict precedence:
-**verified evidence/results > content invariants/identification > working-paper format > distilled HARD_RULE + claim-evidence rules > distilled STRONG_DEFAULT/section grammar > personal voice > OPTIONAL_STYLE > generic templates.**
 
-A valid Style Bundle is sufficient for drafting: do **not** block writing merely because `personal-style-guide.md` is still a template. Personal voice can override only lower-priority stylistic preferences and can never strengthen a claim beyond the evidence.
+**verified evidence/results > content invariants/identification > Scientific Style claim-evidence + HARD rules > working-paper format > Scientific Style strong defaults/section grammar > Elite Voice EV-SIG > Elite Voice EV-DEF > personal voice > optional styles/examples > generic templates.**
 
-Do not copy source-corpus prose from examples. Use the bundle as a writing policy, not as a phrase bank.
-
-This contract is deliberately stored in root `CLAUDE.md` and `writing_style/` so it survives `/tools upgrade`, which may replace `.claude/`.
+Never imitate recognizable wording or signature phrases from any source scholar. The Elite Voice layer transfers ensemble writing mechanisms, not author identity.
 
 ---
 
@@ -126,7 +144,7 @@ See `quality.md` for weighted aggregation formula.
 | `/discover [mode] [topic]` | Discovery: interview, literature, data, ideation |
 | `/strategize [mode] [question]` | Identification strategy, pre-analysis plan, or formal theory section (`theory` mode) |
 | `/analyze [dataset]` | End-to-end data analysis |
-| `/write [section]` | Draft paper sections using the active Distilled Style Bundle + optional personal voice; `style-guide` mode extracts personal voice only |
+| `/write [section]` | Draft using Scientific Style + Elite Economics Voice; personal voice is optional and lower-priority |
 | `/review [file/--flag]` | Quality reviews (routes by target: paper, code, peer) |
 | `/revise [report]` | R&R cycle: classify + route referee comments |
 | `/talk [mode] [format]` | Create, audit, or compile Beamer presentations |
