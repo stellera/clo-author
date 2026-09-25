@@ -38,11 +38,11 @@ Load:
 
 ### introduction
 Load:
-- `HARD-INTRO-01` through `HARD-INTRO-04`
+- `HARD-INTRO-01`, `HARD-INTRO-02`, `HARD-INTRO-03`, `HARD-INTRO-04`
 - `HARD-CLAIM-01`
 - `HARD-RESULT-03`
-- `DEF-INTRO-01` through `DEF-INTRO-05`
-- `AP-INTRO-01` through `AP-INTRO-03`
+- `DEF-INTRO-01`, `DEF-INTRO-02`, `DEF-INTRO-03`, `DEF-INTRO-04`, `DEF-INTRO-05`
+- `AP-INTRO-01`, `AP-INTRO-02`, `AP-INTRO-03`
 - `AP-CLAIM-02`, `AP-CONCL-02`
 - introduction grammars and `CHK-01`, `CHK-02`
 
@@ -79,12 +79,12 @@ Load:
 ### results
 Load:
 - `HARD-CLAIM-01`
-- `HARD-RESULT-01` through `HARD-RESULT-03`
+- `HARD-RESULT-01`, `HARD-RESULT-02`, `HARD-RESULT-03`
 - `HARD-MECH-01`
 - `HARD-DATA-02`
 - `HARD-LEX-01`
-- `DEF-RESULT-01` through `DEF-RESULT-03`
-- `AP-CLAIM-01`, `AP-RESULT-01` through `AP-RESULT-03`
+- `DEF-RESULT-01`, `DEF-RESULT-02`, `DEF-RESULT-03`
+- `AP-CLAIM-01`, `AP-RESULT-01`, `AP-RESULT-02`, `AP-RESULT-03`
 - results grammars and `CHK-03` through `CHK-06`, `CHK-16`
 
 ### mechanism
