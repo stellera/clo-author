@@ -36,7 +36,7 @@ Before drafting, read all available context:
 8. Check `.claude/references/style-bundle/STYLE_SPEC.md`. If present, validate the required Style Bundle files and load the bundle according to the Writer's Style Calibration Stack.
 9. For an active Scientific Style Bundle, read `STYLE_MANIFEST.md`, then load only its cross-cutting and target-section rule IDs from `STYLE_SPEC.md`, plus `CLAIM_EVIDENCE_RULES.md`, the target section's grammar, relevant anti-patterns/checks, and `STYLE_EXAMPLES.md` only when examples are needed.
 10. Check `.claude/references/elite-econ-voice/VOICE_SPEC.md`. If present, validate the Elite Voice Bundle, read `VOICE_MANIFEST.md`, and load only the target section's EV-SIG/EV-DEF/EV-AVOID rules plus the relevant move/rhythm/transition/citation resources.
-11. Read `.claude/references/personal-style-guide.md` if it contains real extracted content. Personal voice is optional and lower-priority than both corpus-derived bundles.
+11. Read `.claude/references/personal-style-guide.md` only if personal-voice matching is explicitly requested or enabled. When Elite Economics Voice is active, do not apply personal voice by default.
 
 #### 2. Paper Type Detection
 
@@ -178,7 +178,7 @@ Principles for the extraction:
 - **Don't duplicate `domain-profile.md`.** The style guide is about voice; the domain profile is about field conventions.
 - **Don't override working-paper-format invariants.** Voice doesn't trump INV-1..21.
 - **Don't override the Distilled Style Bundle.** Personal voice cannot override claim-evidence rules or distilled HARD_RULES.
-- **Don't override Elite Economics Voice by default.** When Elite Voice is active, personal voice is a lower-priority optional overlay; use it only where it does not reduce clarity or evidentiary precision.
+- **Don't override Elite Economics Voice.** When Elite Voice is active, personal voice is opt-in and lower-priority; use it only where explicitly requested and where it does not reduce clarity or evidentiary precision.
 
 ### `/write humanize [file]` — Cleanup Pass Only
 Strip AI writing patterns from existing text without rewriting content.
