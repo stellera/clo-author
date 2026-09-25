@@ -33,6 +33,9 @@ Before drafting, read all available context:
 5. Check `Bibliography_base.bib` for available citations
 6. Scan `paper/tables/` and `paper/figures/` for generated output
 7. Read `quality_reports/results_summary.md` if it exists (from Coder)
+8. Check `.claude/references/style-bundle/STYLE_SPEC.json`. If present, validate the required Style Bundle files and load the bundle according to the Writer's Style Calibration Stack.
+9. For an active bundle, load global HARD_RULES, `CLAIM_EVIDENCE_RULES.md`, `FORBIDDEN_PATTERNS.md`, and only the target section's relevant material from `SECTION_GRAMMARS.md`. Load `STYLE_EXAMPLES.md` only when examples are needed.
+10. Read `.claude/references/personal-style-guide.md` if it contains real extracted content. Personal voice is optional when a valid Distilled Style Bundle is active.
 
 #### 2. Paper Type Detection
 
@@ -59,7 +62,11 @@ Based on `$ARGUMENTS`:
 
 #### 4. Dispatch Writer
 
-Dispatch Writer with paper type and argument-move templates for the target section. The writer drafts using paragraph types (motivation, result statement, mechanism, etc.), applies design-specific moves, then runs the cleanup pass. Save to `paper/sections/[section].tex`.
+Dispatch Writer with the paper type, the active Style Calibration Stack, and the target section's argument-move resources.
+
+If a valid Distilled Style Bundle is active, corpus-derived HARD_RULES and section grammar take precedence over generic Clo-Author templates where they overlap. Generic templates remain fallbacks where the bundle is silent. Personal style, when available, calibrates voice within those constraints.
+
+The writer drafts using one primary argumentative job per paragraph, applies design-specific moves and claim-evidence calibration, then runs the cleanup pass against both generic cleanup patterns and the distilled `FORBIDDEN_PATTERNS.md`. Save to `paper/sections/[section].tex`.
 
 #### 5. Quality Self-Check
 
@@ -76,7 +83,9 @@ Before presenting the draft:
 - [ ] Notation consistent throughout
 - [ ] All tables/figures referenced actually exist in `paper/tables/` or `paper/figures/`
 - [ ] Results narrated correctly for output type (tables, event study figures, counterfactuals)
-- [ ] Personal style guide loaded (not template) — or user prompted to run `/write style-guide`
+- [ ] Style calibration available: valid Distilled Style Bundle and/or populated personal style guide
+- [ ] If Distilled Style Bundle is active, target-section grammar and claim-evidence rules were applied
+- [ ] If Distilled Style Bundle is active, no HARD_RULE or distilled forbidden-pattern violations remain
 - [ ] Claim-source map produced for all numerical claims (`quality_reports/claim_source_map_{project}.md`)
 - [ ] Results/Conclusion only drafted after verifying actual output files exist
 
@@ -93,11 +102,14 @@ For single-section drafts, present the section directly. For `full`, use all thr
 Flag items that need attention:
 - **BLOCKED items:** Results/Conclusion cannot be drafted without output files
 - **VERIFY items:** Citations that need user confirmation
-- **VOICE items:** Style guide not yet extracted (drafting blocked until resolved)
+- **STYLE items:** Distilled Style Bundle exists but is incomplete or inconsistent
+- **VOICE items:** No valid Distilled Style Bundle and personal style guide is still a template (drafting blocked until one calibration source is available)
 
 ### `/write style-guide [paper-dir]` — Extract Personal Voice
 
-One-shot extraction of the user's writing voice from their published or drafted papers. Produces `.claude/references/personal-style-guide.md`, which the writer auto-loads on every subsequent invocation.
+One-shot extraction of the user's **personal writing voice** from their published or drafted papers. Produces `.claude/references/personal-style-guide.md`, which the writer auto-loads on subsequent invocations.
+
+This mode is intentionally separate from the Distilled Style Bundle. It does not create, replace, or modify `.claude/references/style-bundle/`.
 
 **When to run:**
 - Once at the start of a project, after pointing at a directory of the user's prior papers
@@ -133,6 +145,7 @@ Principles for the extraction:
 - **Extract, don't prescribe.** The guide records the author's observed behavior, not what the Writer thinks is good style.
 - **Don't duplicate `domain-profile.md`.** The style guide is about voice; the domain profile is about field conventions.
 - **Don't override working-paper-format invariants.** Voice doesn't trump INV-1..21.
+- **Don't override the Distilled Style Bundle.** When both are active, personal voice chooses among permitted variants but cannot override claim-evidence rules or distilled HARD_RULES.
 
 ### `/write humanize [file]` — Cleanup Pass Only
 Strip AI writing patterns from existing text without rewriting content.
@@ -185,13 +198,14 @@ Loaded on demand by the writer agent:
 | Drafting gates | `templates/drafting-gates.md` | Full draft mode |
 | Claim-source map | `templates/claim-source-map.md` | After results section |
 | Notation protocol | `references/notation-protocol.md` | Strategy + results sections |
+| Distilled Style Bundle | `.claude/references/style-bundle/` | Drafting/revision when `STYLE_SPEC.json` is present |
 
 See also: `gotchas.md` for known failure points and edge cases.
 
 ---
 
 ## Principles
-- **This is the user's paper, not Claude's.** Match their voice and style.
+- **This is the user's paper, not Claude's.** Use personal voice when available; otherwise use the validated Distilled Style Bundle rather than generic stylistic imitation.
 - **Never fabricate results.** Use TBD placeholders.
 - **Citations must be verifiable.** Only cite confirmed papers.
 - **Argument moves first, cleanup second.** Draft with structure, then strip AI patterns.
