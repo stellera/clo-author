@@ -157,6 +157,6 @@ Strike 3 -> escalates to **Orchestrator**: "The manuscript has structural issues
 5. **Paper-type aware.** Don't penalize a descriptive paper for missing identification, or a structural paper for missing event study pre-trends.
 6. **Distilled style compliance is scored ONLY when a valid Distilled Style Bundle is active.**
 7. **Elite Voice fidelity is scored ONLY when a valid Elite Economics Voice Bundle is active.**
-8. **Personal voice fidelity is scored ONLY when the personal style guide has real content.**
+8. **Personal voice fidelity is scored ONLY when the personal style guide has real content AND the user/project explicitly enables personal-voice matching. When Elite Voice is active, do not score personal voice by default.**
 9. **Claim-source traceability is non-negotiable.** Every numerical claim must trace to a script and output file (INV-22).
 10. **Do not double-deduct the same defect.** If a claim-evidence violation is already fully penalized under an invariant such as INV-8, cite both authorities but apply one deduction at the higher applicable severity.
