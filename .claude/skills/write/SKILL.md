@@ -34,8 +34,9 @@ Before drafting, read all available context:
 6. Scan `paper/tables/` and `paper/figures/` for generated output
 7. Read `quality_reports/results_summary.md` if it exists (from Coder)
 8. Check `.claude/references/style-bundle/STYLE_SPEC.md`. If present, validate the required Style Bundle files and load the bundle according to the Writer's Style Calibration Stack.
-9. For an active bundle, read `STYLE_MANIFEST.md`, then load only its cross-cutting and target-section rule IDs from `STYLE_SPEC.md`, plus `CLAIM_EVIDENCE_RULES.md`, the target section's grammar, relevant anti-patterns/checks, and `STYLE_EXAMPLES.md` only when examples are needed.
-10. Read `.claude/references/personal-style-guide.md` if it contains real extracted content. Personal voice is optional when a valid Distilled Style Bundle is active.
+9. For an active Scientific Style Bundle, read `STYLE_MANIFEST.md`, then load only its cross-cutting and target-section rule IDs from `STYLE_SPEC.md`, plus `CLAIM_EVIDENCE_RULES.md`, the target section's grammar, relevant anti-patterns/checks, and `STYLE_EXAMPLES.md` only when examples are needed.
+10. Check `.claude/references/elite-econ-voice/VOICE_SPEC.md`. If present, validate the Elite Voice Bundle, read `VOICE_MANIFEST.md`, and load only the target section's EV-SIG/EV-DEF/EV-AVOID rules plus the relevant move/rhythm/transition/citation resources.
+11. Read `.claude/references/personal-style-guide.md` if it contains real extracted content. Personal voice is optional and lower-priority than both corpus-derived bundles.
 
 #### 2. Paper Type Detection
 
@@ -64,7 +65,7 @@ Based on `$ARGUMENTS`:
 
 Dispatch Writer with the paper type, the active Style Calibration Stack, and the target section's argument-move resources.
 
-If a valid Distilled Style Bundle is active, corpus-derived HARD_RULES and section grammar take precedence over generic Clo-Author templates where they overlap. Generic templates remain fallbacks where the bundle is silent. Personal style, when available, calibrates voice within those constraints.
+If a valid Distilled Scientific Style Bundle is active, corpus-derived HARD_RULES and section grammar take precedence over generic Clo-Author templates. If a valid Elite Economics Voice Bundle is active, it controls sentence realization, research verbs, magnitude integration, transitions, citation voice, and paragraph rhythm **within** the Scientific Style constraints. Personal style, when available, is a lower-priority overlay.
 
 The writer drafts using one primary argumentative job per paragraph, applies design-specific moves and claim-evidence calibration, then runs the cleanup pass against both generic cleanup patterns and the distilled `FORBIDDEN_PATTERNS.md`. Save to `paper/sections/[section].tex`.
 
@@ -81,6 +82,22 @@ When the bundle is active, run the section-specific checks before the general se
 - Conclusion: verdict and scope separated; no new estimand or test.
 - All sections: one dominant argumentative job per paragraph; no intensifying causal verbs where the warrant should carry the force.
 
+#### 4B. Elite Voice Preflight
+
+When the Elite Economics Voice Bundle is active:
+
+- Prefer explicit research-agent syntax where agency matters (`we use/construct/exploit/estimate/find/document/test`).
+- Put a concrete economic/research object early in substantive sentences.
+- Match reporting verbs to rhetorical jobs; do not vary verbs merely for lexical novelty.
+- Integrate important quantities with their substantive objects and interpretable comparators.
+- Write central comparisons in matched syntax.
+- Localize hedging to attribution, reach, and interpretation.
+- Keep clause order aligned with research logic.
+- Open results paragraphs on the result/estimand rather than "Table X reports...".
+- Use simple, necessary transitions; remove stacked connectors and generic significance phrases.
+- Attach citations to propositions rather than author catalogues.
+- Do not imitate recognizable wording, metaphors, or signature phrases from any source scholar.
+
 #### 5. Quality Self-Check
 
 Before presenting the draft:
@@ -96,9 +113,11 @@ Before presenting the draft:
 - [ ] Notation consistent throughout
 - [ ] All tables/figures referenced actually exist in `paper/tables/` or `paper/figures/`
 - [ ] Results narrated correctly for output type (tables, event study figures, counterfactuals)
-- [ ] Style calibration available: valid Distilled Style Bundle and/or populated personal style guide
+- [ ] Style calibration available: valid Scientific Style Bundle, Elite Economics Voice Bundle, and/or populated personal style guide
 - [ ] If Distilled Style Bundle is active, target-section grammar and claim-evidence rules were applied
 - [ ] If Distilled Style Bundle is active, no HARD_RULE or distilled forbidden-pattern violations remain
+- [ ] If Elite Voice is active, no material EV-SIG or repeated EV-AVOID violations remain
+- [ ] Elite Voice has not strengthened any claim beyond Scientific Style permissions
 - [ ] Claim-source map produced for all numerical claims (`quality_reports/claim_source_map_{project}.md`)
 - [ ] Results/Conclusion only drafted after verifying actual output files exist
 
@@ -211,7 +230,8 @@ Loaded on demand by the writer agent:
 | Drafting gates | `templates/drafting-gates.md` | Full draft mode |
 | Claim-source map | `templates/claim-source-map.md` | After results section |
 | Notation protocol | `references/notation-protocol.md` | Strategy + results sections |
-| Distilled Style Bundle | `.claude/references/style-bundle/` | Drafting/revision when `STYLE_SPEC.md` is present |
+| Distilled Style Bundle | `.claude/references/style-bundle/` | Scientific/rhetorical constraints when `STYLE_SPEC.md` is present |
+| Elite Economics Voice | `.claude/references/elite-econ-voice/` | Linguistic realization when `VOICE_SPEC.md` is present |
 
 See also: `gotchas.md` for known failure points and edge cases.
 
