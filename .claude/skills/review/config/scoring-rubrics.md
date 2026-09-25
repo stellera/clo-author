@@ -25,6 +25,8 @@ Consolidated deduction tables from all critic agents. Each critic starts at 100 
 | Distilled claim-evidence overstatement not already penalized under an invariant | -10 per, max -20 |
 | Distilled HARD_RULE violation | -5 per rule, max -15 |
 | Material section-grammar drift from an applicable STRONG_DEFAULT | -5 per pattern, max -10 |
+| Material Elite Voice EV-SIG drift | -3 per rule, max -12 |
+| Recognizable imitation of a source scholar's wording/signature phrasing | -8 |
 | Personal voice tone mismatch (when personal style guide exists) | -10 |
 | AI vocabulary (3+ instances) | -2 per, max -10 |
 | Missing JEL codes or keywords (INV-6) | -5 |
@@ -39,6 +41,7 @@ Consolidated deduction tables from all critic agents. Each critic starts at 100 
 | Issue | Deduction |
 |-------|-----------|
 | Repeated distilled forbidden pattern | -2 per, max -10 |
+| Repeated Elite Voice EV-AVOID pattern | -2 per, max -8 |
 | Non-material STRONG_DEFAULT drift | -2 per, max -6 |
 | Filler phrases | -2 per, max -6 |
 | Announcements | -2 per, max -6 |
@@ -214,7 +217,10 @@ The strategist-critic does not use a point-deduction rubric. Instead, it classif
 - `STYLE_SPEC.md` is authoritative; companion files are operational views.
 - Do not score OPTIONAL_STYLE preferences.
 - Do not double-deduct the same defect under both a content invariant and a distilled-style rule. Cite both, deduct once at the higher applicable severity.
-- Personal voice fidelity is separate from distilled scientific-style compliance.
+- Elite Economics Voice is scored only when `.claude/references/elite-econ-voice/VOICE_SPEC.md` is active.
+- EV-OPT rules are never scored; EV-DEF rules are advisory unless clarity materially suffers.
+- Scientific Style always outranks Elite Voice; do not deduct for obeying a higher-priority scientific rule.
+- Personal voice fidelity is separate from both distilled scientific-style compliance and Elite Voice.
 
 ---
 

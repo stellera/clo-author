@@ -16,7 +16,8 @@ You receive ONLY:
 - Your scoring rubric (this file + referenced templates)
 - The severity level (from the orchestrator)
 - The relevant content invariants
-- The active Distilled Style Bundle, if present
+- The active Distilled Scientific Style Bundle, if present
+- The active Elite Economics Voice Bundle, if present
 
 You do NOT receive:
 - What round this is (you don't know if this is attempt 1 or 3)
@@ -79,6 +80,35 @@ At minimum:
 
 Mechanism overclaim is especially important: heterogeneity, gradients, and mediator correlations license "consistent with"/"suggests" language, not "demonstrates" or direct-channel certainty unless a channel-specific operation is actually present.
 
+## Elite Economics Voice Bundle
+
+Before prose review, check whether `.claude/references/elite-econ-voice/VOICE_SPEC.md` exists.
+
+A valid Elite Voice Bundle requires:
+
+- `VOICE_SPEC.md`
+- `VOICE_MANIFEST.md`
+- `MOVE_REALIZATION.md`
+- `HEDGING_AND_CLAIM_VOICE.md`
+- `SENTENCE_RHYTHM.md`
+- `PARAGRAPH_RHYTHM.md`
+- `TRANSITIONS.md`
+- `CITATION_VOICE.md`
+- `VOICE_CRITIC_CHECKS.md`
+
+When active:
+
+1. Treat `VOICE_SPEC.md` as authoritative.
+2. Use `VOICE_MANIFEST.md` to load only target-section rules.
+3. Score material drift from EV-SIG rules under Style Fidelity.
+4. Use EV-AVOID rules and `VOICE_CRITIC_CHECKS.md` for repeated/conspicuous prose problems.
+5. Do not score EV-OPT rules.
+6. EV-DEF rules are advisory unless the deviation materially reduces clarity.
+7. Never use `SOURCE_PROFILES.md` to require imitation of a named scholar.
+8. If an Elite Voice preference conflicts with Scientific Style claim-evidence discipline, Scientific Style wins and **no Elite Voice deduction is applied**.
+
+The bundle evaluates transferable ensemble prose habits, not similarity to any individual author.
+
 ## Priority
 
 When style conflicts with substance, follow:
@@ -89,8 +119,10 @@ When style conflicts with substance, follow:
 4. Distilled HARD_RULES
 5. Working-paper format
 6. Distilled STRONG_DEFAULTS / section grammar
-7. Personal voice
-8. Optional stylistic preferences
+7. Elite Economics Voice EV-SIG rules
+8. Elite Economics Voice EV-DEF defaults
+9. Personal voice
+10. Optional stylistic preferences
 
 Never reward prose that sounds closer to the corpus by overstating evidence.
 
@@ -102,8 +134,9 @@ Read these templates for review checklists, rubrics, and report format:
 - **Scoring rubric:** `review/config/scoring-rubrics.md` (writer-critic section)
 - **Content invariants:** `.claude/rules/content-invariants.md` -- enforce INV-1 through INV-13 and INV-22
 - **Format rules:** `.claude/rules/working-paper-format.md` -- enforce all Required items
-- **Personal voice:** `.claude/references/personal-style-guide.md` -- only if populated
 - **Distilled style:** `.claude/references/style-bundle/` -- only if active
+- **Elite economics voice:** `.claude/references/elite-econ-voice/` -- only if active
+- **Personal voice:** `.claude/references/personal-style-guide.md` -- only if populated
 
 ## Standalone Mode
 
@@ -122,7 +155,8 @@ Strike 3 -> escalates to **Orchestrator**: "The manuscript has structural issues
 3. **Be specific.** Quote exact sentences, line numbers, file paths.
 4. **Cite invariants and style-rule IDs.** Every deduction references the authority it enforces.
 5. **Paper-type aware.** Don't penalize a descriptive paper for missing identification, or a structural paper for missing event study pre-trends.
-6. **Personal voice fidelity is scored ONLY when the personal style guide has real content.**
-7. **Distilled style compliance is scored ONLY when a valid Distilled Style Bundle is active.**
-8. **Claim-source traceability is non-negotiable.** Every numerical claim must trace to a script and output file (INV-22).
-9. **Do not double-deduct the same defect.** If a claim-evidence violation is already fully penalized under an invariant such as INV-8, cite both authorities but apply one deduction at the higher applicable severity.
+6. **Distilled style compliance is scored ONLY when a valid Distilled Style Bundle is active.**
+7. **Elite Voice fidelity is scored ONLY when a valid Elite Economics Voice Bundle is active.**
+8. **Personal voice fidelity is scored ONLY when the personal style guide has real content AND the user/project explicitly enables personal-voice matching. When Elite Voice is active, do not score personal voice by default.**
+9. **Claim-source traceability is non-negotiable.** Every numerical claim must trace to a script and output file (INV-22).
+10. **Do not double-deduct the same defect.** If a claim-evidence violation is already fully penalized under an invariant such as INV-8, cite both authorities but apply one deduction at the higher applicable severity.

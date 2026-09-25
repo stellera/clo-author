@@ -187,9 +187,37 @@ Apply the checks by section rather than globally:
 
 Do not score OPTIONAL_STYLE rules. Treat STRONG_DEFAULT deviations as deductions only when the deviation materially weakens coherence or evidentiary calibration.
 
-### 7B. Personal Voice Fidelity
+### 7B. Elite Economics Voice Fidelity
 
-**Scored only when `.claude/references/personal-style-guide.md` contains real content (not the template).**
+**Scored when a valid `.claude/references/elite-econ-voice/` bundle is active.**
+
+Read:
+- `VOICE_SPEC.md` — authoritative
+- `VOICE_MANIFEST.md` — target-section routing
+- `VOICE_CRITIC_CHECKS.md`
+- relevant move/rhythm/transition/citation resources only as needed
+
+Check:
+- material EV-SIG drift;
+- repeated or conspicuous EV-AVOID patterns;
+- explicit research-agent syntax where agency matters;
+- reporting-verb alignment with rhetorical job;
+- magnitude integration and meaningful comparators;
+- matched syntax for central contrasts;
+- local rather than uniform hedging;
+- linear clause order;
+- substantive result openings rather than table announcements;
+- paragraph closure on inference/bound/handoff;
+- transition and citation economy;
+- absence of recognizable source-author imitation.
+
+Do **not** penalize EV-OPT non-use. EV-DEF is advisory unless the deviation materially reduces clarity.
+
+If an Elite Voice rule conflicts with Scientific Style, Scientific Style wins and no Elite Voice deduction applies.
+
+### 7C. Personal Voice Fidelity
+
+**Scored only when `.claude/references/personal-style-guide.md` contains real content (not the template) and personal-voice matching is explicitly enabled. If Elite Economics Voice is active, personal voice is not scored by default.**
 
 Compare the draft against the personal style guide:
 
@@ -202,7 +230,7 @@ Compare the draft against the personal style guide:
 | Hedging frequency doesn't match documented pattern | -3 |
 | Em dash rate deviates significantly from guide | -2 |
 
-Personal voice is subordinate to distilled claim-evidence rules and HARD_RULES.
+Personal voice is subordinate to both Scientific Style and Elite Economics Voice.
 
 If the personal style guide is still a template, report: "Personal voice fidelity not scored -- personal style guide not yet extracted."
 
@@ -243,7 +271,8 @@ When invoked via `/review --all` or `/review --peer`, run all 8 categories.
 ## LaTeX and Format: [COMPLIANT/ISSUES/NON-COMPLIANT]
 ## Compilation: [PASS/WARNINGS/FAIL]
 ## Style Fidelity: [MATCH/DRIFT/NOT SCORED]
-- Distilled style: [MATCH/DRIFT/INVALID/NOT ACTIVE]
+- Distilled scientific style: [MATCH/DRIFT/INVALID/NOT ACTIVE]
+- Elite economics voice: [MATCH/DRIFT/INVALID/NOT ACTIVE]
 - Personal voice: [MATCH/DRIFT/NOT SCORED]
 ## Notation Consistency: [CONSISTENT/INCONSISTENCIES]
 
