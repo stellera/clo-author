@@ -153,7 +153,8 @@ Verifier-lite checks:
 **Scored when a valid Distilled Style Bundle is active.**
 
 Read:
-- `.claude/references/style-bundle/STYLE_SPEC.json` — authoritative
+- `.claude/references/style-bundle/STYLE_SPEC.md` — authoritative
+- `.claude/references/style-bundle/STYLE_MANIFEST.md` — section-specific rule map
 - `.claude/references/style-bundle/SECTION_GRAMMARS.md` — target-section rhetorical grammar
 - `.claude/references/style-bundle/STYLE_CRITIC_CHECKS.md` — operational checks
 
@@ -166,9 +167,25 @@ Check:
 - STRONG_DEFAULT drift only when it materially harms coherence
 - no penalties for OPTIONAL_STYLE differences
 
-Every finding must cite a style rule ID. If Markdown and JSON conflict, `STYLE_SPEC.json` wins.
+Every finding must cite a style rule ID. If companion files conflict, `STYLE_SPEC.md` wins.
 
-If `STYLE_SPEC.json` exists but required companion files are missing, report **STYLE BUNDLE INVALID** and skip 7A scoring rather than guessing.
+If `STYLE_SPEC.md` exists but required companion files are missing, report **STYLE BUNDLE INVALID** and skip 7A scoring rather than guessing.
+
+### Distilled corpus-specific checks
+
+Apply the checks by section rather than globally:
+
+- Introduction: CHK-01/02; HARD-INTRO-01..04; AP-INTRO-01..03.
+- Strategy: CHK-07/08/09; HARD-STRATEGY-01/02; AP-STRATEGY-01/02.
+- Results: CHK-03/05/06/16; HARD-RESULT-01..03; AP-RESULT-01..03.
+- Mechanism: CHK-03/04/09/16; HARD-MECH-01/02; AP-CLAIM-01.
+- Robustness: CHK-10/11/16; HARD-ROBUST-01/02; AP-ROBUST-01/02.
+- Data: CHK-12/13; HARD-DATA-01/02; AP-DATA-01/02.
+- Conclusion: CHK-14/15; HARD-CONCL-01/02; AP-CONCL-01/02 and AP-GEN-01.
+- Abstract: CHK-17 plus abstract defaults and claim-strength rules.
+- All: CHK-18 and the cross-cutting claim/lexical rules in the manifest.
+
+Do not score OPTIONAL_STYLE rules. Treat STRONG_DEFAULT deviations as deductions only when the deviation materially weakens coherence or evidentiary calibration.
 
 ### 7B. Personal Voice Fidelity
 
