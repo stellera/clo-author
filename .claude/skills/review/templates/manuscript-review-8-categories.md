@@ -217,7 +217,7 @@ If an Elite Voice rule conflicts with Scientific Style, Scientific Style wins an
 
 ### 7C. Personal Voice Fidelity
 
-**Scored only when `.claude/references/personal-style-guide.md` contains real content (not the template).**
+**Scored only when `.claude/references/personal-style-guide.md` contains real content (not the template) and personal-voice matching is explicitly enabled. If Elite Economics Voice is active, personal voice is not scored by default.**
 
 Compare the draft against the personal style guide:
 
