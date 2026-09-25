@@ -22,7 +22,10 @@ Consolidated deduction tables from all critic agents. Each critic starts at 100 
 
 | Issue | Deduction |
 |-------|-----------|
-| Voice tone mismatch (when style guide exists) | -10 |
+| Distilled claim-evidence overstatement not already penalized under an invariant | -10 per, max -20 |
+| Distilled HARD_RULE violation | -5 per rule, max -15 |
+| Material section-grammar drift from an applicable STRONG_DEFAULT | -5 per pattern, max -10 |
+| Personal voice tone mismatch (when personal style guide exists) | -10 |
 | AI vocabulary (3+ instances) | -2 per, max -10 |
 | Missing JEL codes or keywords (INV-6) | -5 |
 | Claim-source map entries missing | -5 per, max -20 |
@@ -35,6 +38,8 @@ Consolidated deduction tables from all critic agents. Each critic starts at 100 
 
 | Issue | Deduction |
 |-------|-----------|
+| Repeated distilled forbidden pattern | -2 per, max -10 |
+| Non-material STRONG_DEFAULT drift | -2 per, max -6 |
 | Filler phrases | -2 per, max -6 |
 | Announcements | -2 per, max -6 |
 | Em dash overuse | -3 |
@@ -202,5 +207,15 @@ The strategist-critic does not use a point-deduction rubric. Instead, it classif
 | PR | >= 90 | None enforced |
 | Submission | >= 95 | >= 80 per component |
 | Below 80 | < 80 | Blocked |
+
+### Distilled Style Scoring Notes
+
+- Apply distilled-style deductions only when a valid `.claude/references/style-bundle/` is active.
+- `STYLE_SPEC.json` is authoritative; Markdown projections are operational views.
+- Do not score OPTIONAL_STYLE preferences.
+- Do not double-deduct the same defect under both a content invariant and a distilled-style rule. Cite both, deduct once at the higher applicable severity.
+- Personal voice fidelity is separate from distilled scientific-style compliance.
+
+---
 
 Talk scores are advisory and do not block pipeline progression.
