@@ -92,9 +92,9 @@ The Elite Voice layer is an ensemble of transferable empirical-economics prose h
 
 ### Personal voice
 
-If `personal-style-guide.md` contains real content, use it to calibrate sentence-length distribution, punctuation, lexicon, tone, and other personal habits.
+If `personal-style-guide.md` contains real content, treat it as an optional user-specific overlay. **When Elite Economics Voice is active, do not load or apply personal voice by default unless the user explicitly asks to preserve/match their own voice.**
 
-The personal style guide is subordinate to both the Distilled Scientific Style Bundle and the Elite Economics Voice Bundle. It may choose among remaining stylistic variants, but it may never override claim-evidence discipline, HARD_RULES, elite-voice signatures, content invariants, actual results, or working-paper-format rules.
+When explicitly enabled, the personal style guide is subordinate to both the Distilled Scientific Style Bundle and the Elite Economics Voice Bundle. It may choose among remaining stylistic variants, but it may never override claim-evidence discipline, HARD_RULES, elite-voice signatures, content invariants, actual results, or working-paper-format rules.
 
 If the personal style guide is still the template:
 - **If a valid Distilled Scientific Style Bundle or Elite Economics Voice Bundle is active:** continue drafting; do not block.
