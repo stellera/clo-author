@@ -38,6 +38,7 @@
 [YOUR-PROJECT]/
 ├── CLAUDE.MD                    # This file
 ├── .claude/                     # Rules, skills, agents, hooks
+│   └── references/style-bundle/ # Drop-in distilled scientific writing policy
 ├── Bibliography_base.bib        # Centralized bibliography
 ├── paper/                       # Main LaTeX manuscript (source of truth)
 │   ├── main.tex                 # Primary paper file
@@ -125,7 +126,7 @@ See `quality.md` for weighted aggregation formula.
 | `/discover [mode] [topic]` | Discovery: interview, literature, data, ideation |
 | `/strategize [mode] [question]` | Identification strategy, pre-analysis plan, or formal theory section (`theory` mode) |
 | `/analyze [dataset]` | End-to-end data analysis |
-| `/write [section]` | Draft paper sections + humanizer pass (`style-guide` mode extracts voice from prior papers) |
+| `/write [section]` | Draft paper sections using the active Distilled Style Bundle + optional personal voice; `style-guide` mode extracts personal voice only |
 | `/review [file/--flag]` | Quality reviews (routes by target: paper, code, peer) |
 | `/revise [report]` | R&R cycle: classify + route referee comments |
 | `/talk [mode] [format]` | Create, audit, or compile Beamer presentations |
