@@ -211,7 +211,7 @@ The strategist-critic does not use a point-deduction rubric. Instead, it classif
 ### Distilled Style Scoring Notes
 
 - Apply distilled-style deductions only when a valid `.claude/references/style-bundle/` is active.
-- `STYLE_SPEC.json` is authoritative; Markdown projections are operational views.
+- `STYLE_SPEC.md` is authoritative; companion files are operational views.
 - Do not score OPTIONAL_STYLE preferences.
 - Do not double-deduct the same defect under both a content invariant and a distilled-style rule. Cite both, deduct once at the higher applicable severity.
 - Personal voice fidelity is separate from distilled scientific-style compliance.
