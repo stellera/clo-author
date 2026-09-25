@@ -26,7 +26,7 @@ Unified review command that routes to the appropriate critic agents based on the
 - `--stress [journal]` → **Hostile stress test** (same flow, adversarial referee dispositions)
 - `--methods` → **Causal audit** (strategist-critic standalone, 4-phase review)
 - `--theory [target]` → **Proof audit** (theorist-critic standalone, 4-phase review — logical validity, assumption minimality, citations, linkage)
-- `--proofread` → **Manuscript polish** (writer-critic standalone, 6 categories)
+- `--proofread` → **Manuscript polish** (writer-critic standalone: writing quality, LaTeX, compilation, distilled/personal style fidelity, notation)
 - `--code [file]` → **Code review** (coder-critic standalone, categories 4-12)
 - `--replicate [language]` → **Cross-language replication** (Coder re-implements in target language + coder-critic + comparison)
 - `--all` or no file → **Paper excellence** (all critics in parallel + weighted score — theorist-critic included when a theory section is present)
@@ -38,7 +38,7 @@ Unified review command that routes to the appropriate critic agents based on the
 ### Comprehensive Review (default for .tex paper)
 Dispatch in parallel:
 1. **strategist-critic** — causal design audit (4 phases)
-2. **writer-critic** — manuscript polish (6 categories)
+2. **writer-critic** — manuscript review (all applicable categories, including distilled-style compliance when a valid bundle is active)
 3. **Verifier** — compilation check
 Compute weighted aggregate score.
 
