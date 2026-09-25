@@ -1,147 +1,101 @@
 # Distilled Style Bundle
 
-This directory is the drop-in interface between a style-distillation pipeline and Clo-Author's existing writing/review workflow.
+This directory contains the corpus-distilled scientific writing policy used directly by Clo-Author's Writer and Writer-Critic.
 
-The distillation process should write its final artifacts **directly into this directory**. Clo-Author does not generate these files during normal `/write` operations.
+## Active bundle
 
-## Required files
+The current bundle is version 1.0.0 and is Markdown-native.
 
-A bundle is considered active only when all of the following exist:
+Required files:
 
-| File | Role |
-|---|---|
-| `STYLE_SPEC.json` | **Authoritative source of truth** for distilled rules, levels, applicability, support, and rule IDs |
-| `SECTION_GRAMMARS.md` | Human/agent-readable rhetorical grammars by section |
-| `CLAIM_EVIDENCE_RULES.md` | Evidence-to-claim calibration and epistemic-language constraints |
-| `FORBIDDEN_PATTERNS.md` | Corpus-supported anti-patterns / prohibited writing patterns |
-| `STYLE_CRITIC_CHECKS.md` | Operational checks for the writer-critic |
+- `STYLE_SPEC.md` — **authoritative specification**
+- `STYLE_MANIFEST.md` — Clo-Author routing layer for section-specific rule loading
+- `SECTION_GRAMMARS.md` — section-level rhetorical sequences
+- `CLAIM_EVIDENCE_RULES.md` — evidence-to-claim licensing and epistemic calibration
+- `FORBIDDEN_PATTERNS.md` — corpus-supported anti-patterns / critic defaults
+- `STYLE_CRITIC_CHECKS.md` — executable critic questions
 
 Optional:
 
-| File | Role |
-|---|---|
-| `STYLE_EXAMPLES.md` | Synthetic or short corpus-grounded examples used only as a retrieval/example bank |
+- `STYLE_EXAMPLES.md` — synthetic examples used only as examples, never as scoring authority
 
-If `STYLE_SPEC.json` exists but one or more required companion files are missing, Writer treats the bundle as invalid and stops rather than silently combining inconsistent assets.
+The bundle is active only when every required file exists.
 
-## Integration behavior
+If companion files conflict with `STYLE_SPEC.md`, follow `STYLE_SPEC.md`.
 
-### Writer
+## How Writer uses the bundle
 
-When the bundle is active, Writer automatically loads:
+Writer reads `STYLE_MANIFEST.md` first, then loads:
 
-1. global HARD_RULES from `STYLE_SPEC.json`;
-2. rules applicable to the requested section;
-3. `CLAIM_EVIDENCE_RULES.md`;
-4. the target section's material from `SECTION_GRAMMARS.md`;
-5. `FORBIDDEN_PATTERNS.md`;
-6. `STYLE_EXAMPLES.md` only when examples are genuinely useful.
+1. cross-cutting claim/evidence rules;
+2. only the target section's rules from `STYLE_SPEC.md`;
+3. the matching section grammar;
+4. relevant anti-patterns and critic checks;
+5. examples only when useful.
 
-The bundle governs argument organization, rhetorical sequence, claim strength, epistemic calibration, and documented anti-patterns.
+This avoids filling the context window with unrelated style material.
 
-### Writer-Critic
+Key corpus policies include:
 
-When the bundle is active:
+- introductions frame first, state the gap/question by paragraph 3, then preview quantified findings;
+- results report numerical evidence before interpretation and translate headline magnitudes;
+- empirical strategy contains identification objects/assumptions/checks, not estimated readouts;
+- heterogeneity and gradients remain suggestive unless a direct channel-specific test is present;
+- robustness follows perturbation → readout → scope verdict;
+- data provenance/restrictions are disclosed before the object carries evidentiary weight;
+- conclusions separate verdict from scope and do not introduce new estimands.
 
-- Category 2 checks `CLAIM_EVIDENCE_RULES.md`;
-- Category 4 checks `FORBIDDEN_PATTERNS.md`;
-- Category 7A checks `STYLE_SPEC.json`, `SECTION_GRAMMARS.md`, and `STYLE_CRITIC_CHECKS.md`.
+## How Writer-Critic uses the bundle
 
-Every style-specific deduction should cite the corresponding rule ID.
+Writer-Critic uses:
 
-## Relationship to personal-style-guide.md
+- `CLAIM_EVIDENCE_RULES.md` in Claims and Evidence;
+- `FORBIDDEN_PATTERNS.md` in Writing Quality;
+- `STYLE_SPEC.md`, `STYLE_MANIFEST.md`, `SECTION_GRAMMARS.md`, and `STYLE_CRITIC_CHECKS.md` in Style Fidelity.
 
-The two systems have different jobs:
+Every distilled-style finding should cite a rule/check ID such as:
 
-- **Distilled Style Bundle:** scientific/rhetorical writing policy learned from the target paper corpus.
-- **personal-style-guide.md:** the user's personal voice, punctuation, lexicon, and sentence-level habits.
+- `HARD-RESULT-01`
+- `HARD-MECH-01`
+- `AP-CLAIM-01`
+- `CHK-04`
 
-A valid Distilled Style Bundle is sufficient to unblock drafting even if the personal style guide is still a template.
+## Rule levels
 
-When both are active, the bundle has higher priority for claim-evidence discipline, HARD_RULES, and section grammar. Personal voice operates only within the allowed space.
+- `HARD-*`: binding unless a higher-priority empirical/content invariant requires departure.
+- `DEF-*`: strong default; deviation needs a substantive reason.
+- `OPT-*`: optional style; never penalize non-use.
+- `AP-*`: anti-pattern / critic default.
+- `CHK-*`: operational diagnostic check.
 
-## Precedence
+## Claim-evidence priority
 
-When instructions conflict:
+The bundle never upgrades an empirical claim. Priority is:
 
 1. actual data, code output, tables, figures, and verified citations;
 2. content invariants and identification fidelity;
 3. `CLAIM_EVIDENCE_RULES.md`;
-4. HARD_RULES in `STYLE_SPEC.json`;
+4. `HARD-*` rules in `STYLE_SPEC.md`;
 5. working-paper-format rules;
-6. section grammar and STRONG_DEFAULTS;
-7. personal style guide;
+6. section grammars and `DEF-*` defaults;
+7. personal voice;
 8. generic Clo-Author templates;
-9. OPTIONAL_STYLE preferences and examples.
+9. `OPT-*` preferences and examples.
 
-No style rule may strengthen a claim beyond what the evidence supports.
+Personal voice may choose among permitted stylistic variants, but it cannot override evidentiary calibration.
 
-## Section names
+## Distillation output contract
 
-The distillation pipeline should use stable section labels where possible:
-
-- `abstract`
-- `introduction`
-- `literature`
-- `background`
-- `data`
-- `empirical_strategy`
-- `model`
-- `results`
-- `mechanism`
-- `heterogeneity`
-- `robustness`
-- `discussion`
-- `conclusion`
-
-Clo-Author command aliases map as follows:
-
-- `/write intro` -> `introduction`
-- `/write strategy` -> `empirical_strategy` (or model/estimation for the detected paper type)
-- `/write results` -> `results`, with mechanism/heterogeneity/robustness rules loaded only when relevant
-- `/write conclusion` -> `conclusion`
-- `/write abstract` -> `abstract`
-
-## STYLE_SPEC.json expectations
-
-The exact schema may evolve, but each rule should expose enough information for deterministic use:
-
-```json
-{
-  "rule_id": "RESULT-004",
-  "level": "HARD_RULE",
-  "applicable_sections": ["results"],
-  "applicable_moves": ["MAIN_RESULT", "MAGNITUDE"],
-  "rule_statement": "State quantitative evidence before substantive interpretation.",
-  "support": {
-    "paper_count": 23,
-    "paper_share": 0.77,
-    "paragraph_count": 81
-  }
-}
-```
-
-Recommended rule levels:
-
-- `HARD_RULE`
-- `STRONG_DEFAULT`
-- `OPTIONAL_STYLE`
-- `ANTI_PATTERN`
-
-The Writer and Writer-Critic must not turn `OPTIONAL_STYLE` into a requirement.
-
-## Recommended distillation output command
-
-Configure the external/Codex style-distillation workflow so its final rendering step writes:
+A style-distillation workflow can refresh this bundle by replacing the six distillation outputs:
 
 ```text
 .claude/references/style-bundle/
-├── STYLE_SPEC.json
+├── STYLE_SPEC.md
 ├── SECTION_GRAMMARS.md
 ├── CLAIM_EVIDENCE_RULES.md
 ├── FORBIDDEN_PATTERNS.md
-├── STYLE_EXAMPLES.md
-└── STYLE_CRITIC_CHECKS.md
+├── STYLE_CRITIC_CHECKS.md
+└── STYLE_EXAMPLES.md
 ```
 
-No manual copying or conversion should be necessary after distillation.
+`STYLE_MANIFEST.md` is the Clo-Author integration layer. Update it only when rule IDs, section names, or bundle structure change materially.
