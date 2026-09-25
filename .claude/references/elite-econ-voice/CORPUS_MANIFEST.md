@@ -22,7 +22,7 @@
 | C1 | Where Is the Land of Opportunity? The Geography of Intergenerational Mobility in the United States | QJE, 2014 | https://opportunityinsights.org/paper/land-of-opportunity/ |
 | C2 | The Effects of Exposure to Better Neighborhoods on Children: New Evidence from the Moving to Opportunity Experiment | AER, 2016 | https://www.aeaweb.org/articles?id=10.1257/aer.20150572 |
 | C3 | Race and Economic Opportunity in the United States: An Intergenerational Perspective | QJE, 2020 | https://www.census.gov/library/working-papers/2018/adrm/CES-WP-18-40R.html |
-| C4 | Creating Moves to Opportunity: Experimental Evidence on Barriers to Neighborhood Choice | AER, 2024 | https://www.aeaweb.org/articles?id=10.1257/aer.20200407 |
+| C4 | Creating Moves to Opportunity: Experimental Evidence on Barriers to Neighborhood Choice | AER, 2023 | https://www.aeaweb.org/articles?id=10.1257/aer.20200407 |
 | C5 | Diversifying Society's Leaders? The Determinants and Causal Effects of Admission to Highly Selective Private Colleges | QJE, 2026 | https://opportunityinsights.org/paper/collegeadmissions/ |
 
 ## Hanming Fang
@@ -53,7 +53,7 @@
 | S2 | Watering Down Environmental Regulation in China | QJE, 2020 | https://academic.oup.com/qje/article/135/4/2135/5860784 |
 | S3 | Subjective Performance Evaluation, Influence Activities, and Bureaucratic Work Behavior: Evidence from China | AER, 2023 | https://www.aeaweb.org/articles?id=10.1257/aer.20211207 |
 | S4 | Does the Squeaky Wheel Get More Grease? The Direct and Indirect Effects of Citizen Participation on Environmental Governance in China | AER, 2024 | https://www.aeaweb.org/articles?id=10.1257/aer.20221215 |
-| S5 | Court Capture, Local Protectionism, and Economic Integration: Evidence from China | Review of Economics and Statistics, 2026 | https://doi.org/10.1162/rest.a.1820 |
+| S5 | Court Capture, Local Protectionism, and Economic Integration: Evidence from China | Review of Economics and Statistics, forthcoming | https://doi.org/10.1162/rest.a.1820 |
 
 ## David Y. Yang
 
