@@ -35,11 +35,12 @@ Review the Writer's manuscript draft. Check 8 categories. Produce a scored repor
 
 ## Distilled Style Bundle
 
-Before reviewing prose, check whether `.claude/references/style-bundle/STYLE_SPEC.json` exists.
+Before reviewing prose, check whether `.claude/references/style-bundle/STYLE_SPEC.md` exists.
 
 A Distilled Style Bundle is active only when these required files all exist:
 
-- `.claude/references/style-bundle/STYLE_SPEC.json`
+- `.claude/references/style-bundle/STYLE_SPEC.md`
+- `.claude/references/style-bundle/STYLE_MANIFEST.md`
 - `.claude/references/style-bundle/SECTION_GRAMMARS.md`
 - `.claude/references/style-bundle/CLAIM_EVIDENCE_RULES.md`
 - `.claude/references/style-bundle/FORBIDDEN_PATTERNS.md`
@@ -47,18 +48,36 @@ A Distilled Style Bundle is active only when these required files all exist:
 
 `STYLE_EXAMPLES.md` is optional and is not a scoring authority.
 
-If `STYLE_SPEC.json` exists but the bundle is incomplete, report **STYLE BUNDLE INVALID** and do not score distilled-style compliance. Do not infer missing rules.
+If `STYLE_SPEC.md` exists but the bundle is incomplete, report **STYLE BUNDLE INVALID** and do not score distilled-style compliance. Do not infer missing rules.
 
 When the bundle is active:
 
-1. Treat `STYLE_SPEC.json` as authoritative.
+1. Treat `STYLE_SPEC.md` as authoritative and use `STYLE_MANIFEST.md` to select cross-cutting and target-section rule IDs.
 2. Use `CLAIM_EVIDENCE_RULES.md` in **Category 2: Claims and Evidence**.
 3. Use `FORBIDDEN_PATTERNS.md` in **Category 4: Writing Quality**.
 4. Use the target section's relevant rules from `SECTION_GRAMMARS.md` plus `STYLE_CRITIC_CHECKS.md` in **Category 7: Style Fidelity**.
-5. If a Markdown projection conflicts with `STYLE_SPEC.json`, follow the JSON.
+5. If a companion file conflicts with `STYLE_SPEC.md`, follow `STYLE_SPEC.md`.
 6. Cite the relevant distilled rule ID in every style-specific deduction.
 
 Do not penalize a manuscript for violating an OPTIONAL_STYLE preference. STRONG_DEFAULTS are rebuttable defaults. HARD_RULES are scored unless a higher-priority content or identification rule requires departure.
+
+## Corpus-specific critic routing
+
+Use the rule map in `STYLE_MANIFEST.md` rather than applying every rule to every section.
+
+At minimum:
+
+- Introduction: CHK-01/02 plus HARD-INTRO-01..04 and AP-INTRO-01..03.
+- Empirical strategy: CHK-07/08/09 plus HARD-STRATEGY-01/02 and AP-STRATEGY-01/02.
+- Results: CHK-03/05/06/16 plus HARD-RESULT-01..03 and AP-RESULT-01..03.
+- Mechanism: CHK-03/04/09/16 plus HARD-MECH-01/02 and AP-CLAIM-01.
+- Robustness: CHK-10/11/16 plus HARD-ROBUST-01/02 and AP-ROBUST-01/02.
+- Data: CHK-12/13 plus HARD-DATA-01/02 and AP-DATA-01/02.
+- Conclusion: CHK-14/15 plus HARD-CONCL-01/02 and AP-CONCL-01/02/AP-GEN-01.
+- Abstract: CHK-17 plus the abstract defaults and claim-strength rules.
+- All sections: CHK-18, HARD-CLAIM-01, HARD-LEX-01, and the evidence licensing rules.
+
+Mechanism overclaim is especially important: heterogeneity, gradients, and mediator correlations license "consistent with"/"suggests" language, not "demonstrates" or direct-channel certainty unless a channel-specific operation is actually present.
 
 ## Priority
 
