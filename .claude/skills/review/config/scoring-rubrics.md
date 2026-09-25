@@ -27,7 +27,7 @@ Consolidated deduction tables from all critic agents. Each critic starts at 100 
 | Material section-grammar drift from an applicable STRONG_DEFAULT | -5 per pattern, max -10 |
 | Material Elite Voice EV-SIG drift | -3 per rule, max -12 |
 | Recognizable imitation of a source scholar's wording/signature phrasing | -8 |
-| Personal voice tone mismatch (when personal style guide exists) | -10 |
+| Personal voice tone mismatch (only when personal-voice matching is explicitly enabled) | -10 |
 | AI vocabulary (3+ instances) | -2 per, max -10 |
 | Missing JEL codes or keywords (INV-6) | -5 |
 | Claim-source map entries missing | -5 per, max -20 |
@@ -220,7 +220,7 @@ The strategist-critic does not use a point-deduction rubric. Instead, it classif
 - Elite Economics Voice is scored only when `.claude/references/elite-econ-voice/VOICE_SPEC.md` is active.
 - EV-OPT rules are never scored; EV-DEF rules are advisory unless clarity materially suffers.
 - Scientific Style always outranks Elite Voice; do not deduct for obeying a higher-priority scientific rule.
-- Personal voice fidelity is separate from both distilled scientific-style compliance and Elite Voice.
+- Personal voice fidelity is separate from both distilled scientific-style compliance and Elite Voice, and is scored only when personal-voice matching is explicitly enabled.
 
 ---
 
