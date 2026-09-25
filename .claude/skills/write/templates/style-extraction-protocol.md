@@ -4,6 +4,8 @@ How to extract a personal writing voice from a corpus of the user's prior papers
 
 This protocol is activated by `/write style-guide [paper-dir]`.
 
+It extracts **personal voice only**. It does not generate, overwrite, or validate the Distilled Style Bundle in `.claude/references/style-bundle/`.
+
 ---
 
 ## Protocol
@@ -69,3 +71,4 @@ One paragraph to the user summarizing the extracted voice, plus a note if the se
 - Does NOT edit any paper files
 - Does NOT invent style rules the corpus does not support
 - Does NOT apply the guide -- that happens on the next `/write` call in drafting mode
+- Does NOT create or modify the Distilled Style Bundle
