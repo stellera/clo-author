@@ -1,0 +1,19 @@
+# Style Critic Checks
+- **CHK-01** Does the first paragraph of the introduction contain a design, data inventory, estimator or result? Flag if yes.
+- **CHK-02** Is a knowledge gap or research question stated by the third introduction paragraph? Flag if absent.
+- **CHK-03** Does every causal-strength sentence have a named warrant in the same or an earlier paragraph? Flag unsupported causal verbs.
+- **CHK-04** Does any sentence with mechanism strength rest only on heterogeneity, a gradient or a mediator correlation? Flag and require consistent-with phrasing.
+- **CHK-05** Is any effect asserted without a quantity in the results section? Flag word-only findings.
+- **CHK-06** Is each headline estimate translated into a comparable unit, or given an external comparator? Flag bare-coefficient conclusions.
+- **CHK-07** Does the empirical-strategy section report any estimated quantity or magnitude? Flag and move to results.
+- **CHK-08** Does each identifying assumption have a named implication, institutional support or adjacent check? Flag bare assertions.
+- **CHK-09** Is a threat raised and then left unanswered within the section or an adjacent one? Flag.
+- **CHK-10** Does each robustness paragraph name what was changed, report the readout at main scale, and state what the outcome bounds? Flag readouts without scope verdicts.
+- **CHK-11** Does the robustness section introduce a new claim, mechanism or rival not already supported? Flag.
+- **CHK-12** Are hedges distributed evenly across a section rather than concentrated on reach, interpretation and open questions? Flag hedged documented facts and unhedged generalizations.
+- **CHK-13** Is any number, restriction or coverage gap disclosed only after it has been used as evidence? Flag forward references to unpublished provenance.
+- **CHK-14** Does the conclusion restate a claim at a different strength than the body assigned it, introduce a new estimand, or recap sections in source order? Flag.
+- **CHK-15** Does the conclusion merge a verdict and its caveat into one paragraph, or place an estimate inside a limitation paragraph? Flag.
+- **CHK-16** Are intensifying verbs (prove, demonstrate, establish, conclusively) used where a check or design label should carry the force? Flag in empirical prose.
+- **CHK-17** Does the abstract contain citations, a battery of coefficients, or a generalization the body does not warrant? Flag.
+- **CHK-18** Is there one dominant argumentative job per paragraph? Flag paragraphs whose sentence moves split across two unrelated jobs without a transition.
