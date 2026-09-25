@@ -135,13 +135,13 @@ Flag items that need attention:
 - **BLOCKED items:** Results/Conclusion cannot be drafted without output files
 - **VERIFY items:** Citations that need user confirmation
 - **STYLE items:** Distilled Style Bundle exists but is incomplete or inconsistent
-- **VOICE items:** No valid Distilled Style Bundle and personal style guide is still a template (drafting blocked until one calibration source is available)
+- **VOICE items:** Elite Voice Bundle missing/invalid. Drafting can still proceed if Scientific Style is valid, but prose falls back to generic Clo-Author realization. A personal style guide is optional.
 
 ### `/write style-guide [paper-dir]` — Extract Personal Voice
 
 One-shot extraction of the user's **personal writing voice** from their published or drafted papers. Produces `.claude/references/personal-style-guide.md`, which the writer auto-loads on subsequent invocations.
 
-This mode is intentionally separate from the Distilled Style Bundle. It does not create, replace, or modify `.claude/references/style-bundle/`.
+This mode is intentionally separate from both corpus-derived bundles. It does not create, replace, or modify `.claude/references/style-bundle/` or `.claude/references/elite-econ-voice/`.
 
 **When to run:**
 - Once at the start of a project, after pointing at a directory of the user's prior papers
@@ -177,7 +177,8 @@ Principles for the extraction:
 - **Extract, don't prescribe.** The guide records the author's observed behavior, not what the Writer thinks is good style.
 - **Don't duplicate `domain-profile.md`.** The style guide is about voice; the domain profile is about field conventions.
 - **Don't override working-paper-format invariants.** Voice doesn't trump INV-1..21.
-- **Don't override the Distilled Style Bundle.** When both are active, personal voice chooses among permitted variants but cannot override claim-evidence rules or distilled HARD_RULES.
+- **Don't override the Distilled Style Bundle.** Personal voice cannot override claim-evidence rules or distilled HARD_RULES.
+- **Don't override Elite Economics Voice by default.** When Elite Voice is active, personal voice is a lower-priority optional overlay; use it only where it does not reduce clarity or evidentiary precision.
 
 ### `/write humanize [file]` — Cleanup Pass Only
 Strip AI writing patterns from existing text without rewriting content.
@@ -185,11 +186,13 @@ Strip AI writing patterns from existing text without rewriting content.
 **Agent:** Writer (cleanup mode)
 **Output:** Edited file with AI patterns removed
 
-Strips 24 patterns across 4 categories:
+Strips 24 generic AI patterns across 4 categories:
 - Structural: forced narrative arcs, artificial progression
 - Lexical: "delve, leverage, nuanced, robust"
 - Rhetorical: rule-of-three, negative parallelisms, em dash overuse
 - Formatting: excessive bullet points, promotional language
+
+If Elite Voice is active, the cleanup pass also applies EV-AVOID rules and `VOICE_CRITIC_CHECKS.md` without changing empirical content, claim strength, citations, numbers, or identification.
 
 ---
 
@@ -238,7 +241,7 @@ See also: `gotchas.md` for known failure points and edge cases.
 ---
 
 ## Principles
-- **This is the user's paper, not Claude's.** Use personal voice when available; otherwise use the validated Distilled Style Bundle rather than generic stylistic imitation.
+- **This is the user's paper, not Claude's.** Scientific Style governs evidentiary discipline; Elite Economics Voice supplies the default high-quality prose realization; personal voice is optional and lower-priority.
 - **Never fabricate results.** Use TBD placeholders.
 - **Citations must be verifiable.** Only cite confirmed papers.
 - **Argument moves first, cleanup second.** Draft with structure, then strip AI patterns.
