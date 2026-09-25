@@ -95,7 +95,7 @@ This layer governs linguistic realization: research-agent syntax, verb choice, m
 
 ### Optional Personal Voice
 
-`.claude/references/personal-style-guide.md` is a lower-priority optional overlay. It is not required when the corpus-derived bundles are active.
+`.claude/references/personal-style-guide.md` is a lower-priority optional overlay. When Elite Economics Voice is active, personal voice is **opt-in**: do not load, apply, or score it unless the user/project explicitly enables personal-voice matching.
 
 Conflict precedence:
 
