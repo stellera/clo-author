@@ -20,6 +20,7 @@
 - **Quality gates** -- weighted aggregate score; nothing ships below 80/100; see `quality.md`
 - **Worker-critic pairs** -- every creator has a paired critic; critics never edit files
 - **Auto-memory** -- corrections and preferences are saved automatically via Claude Code's built-in memory system
+- **Distilled style policy** -- when `writing_style/STYLE_SPEC.json` exists, its evidence-calibrated writing rules are loaded automatically for paper drafting and review
 
 ---
 
@@ -55,8 +56,33 @@
 ├── quality_reports/             # Plans, session logs, reviews, scores
 ├── explorations/                # Research sandbox (see rules)
 ├── templates/                   # Session log, quality report templates
+├── writing_style/               # Distilled scientific writing policy (upgrade-safe)
 └── master_supporting_docs/      # Reference papers and data docs
 ```
+
+---
+
+## Distilled Writing Style Integration
+
+If `writing_style/STYLE_SPEC.json` exists and is non-empty, the distilled Style Bundle is **active** for all manuscript drafting, revision, proofreading, and writer-critic review.
+
+Load style resources in this order:
+1. `writing_style/STYLE_SPEC.json` — authoritative policy
+2. `writing_style/CLAIM_EVIDENCE_RULES.md` — claim/evidence calibration
+3. `writing_style/SECTION_GRAMMARS.md` — use only the target section's relevant grammar
+4. `writing_style/FORBIDDEN_PATTERNS.md` — cleanup and review
+5. `writing_style/STYLE_CRITIC_CHECKS.md` — critic only
+6. `writing_style/STYLE_EXAMPLES.md` — on demand only
+7. `.claude/references/personal-style-guide.md` — optional personal voice overlay
+
+Conflict precedence:
+**verified evidence/results > content invariants/identification > working-paper format > distilled HARD_RULE + claim-evidence rules > distilled STRONG_DEFAULT/section grammar > personal voice > OPTIONAL_STYLE > generic templates.**
+
+A valid Style Bundle is sufficient for drafting: do **not** block writing merely because `personal-style-guide.md` is still a template. Personal voice can override only lower-priority stylistic preferences and can never strengthen a claim beyond the evidence.
+
+Do not copy source-corpus prose from examples. Use the bundle as a writing policy, not as a phrase bank.
+
+This contract is deliberately stored in root `CLAUDE.md` and `writing_style/` so it survives `/tools upgrade`, which may replace `.claude/`.
 
 ---
 
