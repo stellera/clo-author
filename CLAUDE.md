@@ -100,7 +100,7 @@ This layer governs linguistic realization: research-agent syntax, verb choice, m
 
 Conflict precedence:
 
-**verified evidence/results > content invariants/identification > Scientific Style claim-evidence + HARD rules > working-paper format > Scientific Style strong defaults/section grammar > Elite Voice EV-SIG > Elite Voice EV-DEF > personal voice > optional styles/examples > generic templates.**
+**verified evidence/results > content invariants/identification > Scientific Style claim-evidence + HARD rules > working-paper format > Scientific Style strong defaults/section grammar > assertiveness policy (qualification placement only) > Elite Voice EV-SIG > Elite Voice EV-DEF > personal voice > optional styles/examples > generic templates.**
 
 Never imitate recognizable wording or signature phrases from any source scholar. The Elite Voice layer transfers ensemble writing mechanisms, not author identity.
 
