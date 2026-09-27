@@ -10,9 +10,10 @@ This manifest integrates the distilled Scientific Writing Style Specification v1
 - `SECTION_GRAMMARS.md` — section-level rhetorical sequences
 - `FORBIDDEN_PATTERNS.md` — critic defaults and anti-patterns
 - `STYLE_CRITIC_CHECKS.md` — executable review questions
+- `ASSERTIVENESS_POLICY.md` — operational anti-defensiveness overlay; controls qualification frequency/placement without changing evidence permissions
 - `STYLE_EXAMPLES.md` — synthetic examples only; never a scoring authority
 
-If companion wording conflicts with `STYLE_SPEC.md`, follow `STYLE_SPEC.md`.
+If companion wording conflicts with `STYLE_SPEC.md` on evidentiary permission or rule content, follow `STYLE_SPEC.md`. `ASSERTIVENESS_POLICY.md` governs how multiple caution/qualification rules are composed in prose; it may compress or relocate qualifications but may never strengthen a claim beyond `STYLE_SPEC.md` or `CLAIM_EVIDENCE_RULES.md`.
 
 ## Cross-cutting rules
 
@@ -23,6 +24,7 @@ Always load these regardless of section:
 - `AP-CLAIM-01` — heterogeneity/mediator evidence cannot inherit causal mechanism strength
 - `AP-CLAIM-02` — hedging belongs on interpretation/reach, not uniformly across factual and evidentiary sentences
 - `CLAIM_EVIDENCE_RULES.md` in full
+- `ASSERTIVENESS_POLICY.md` in full
 
 ## Section rule map
 
@@ -136,6 +138,7 @@ For a section:
 3. read the matching grammar in `SECTION_GRAMMARS.md`;
 4. read `CLAIM_EVIDENCE_RULES.md`;
 5. read only relevant anti-patterns/checks;
-6. use `STYLE_EXAMPLES.md` only if a concrete example would help.
+6. apply `ASSERTIVENESS_POLICY.md` to prevent repeated/stacked defensive qualification;
+7. use `STYLE_EXAMPLES.md` only if a concrete example would help.
 
 This preserves context for the research content while keeping style enforcement explicit and traceable.

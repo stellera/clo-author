@@ -61,7 +61,7 @@ Extracted from `writer-critic.md`. Used by the writer-critic agent for manuscrip
 - Does the empirical strategy section accurately describe the strategy memo's design?
 - No overclaiming: causal language only in papers with causal designs (INV-8)
 - Assumptions named and stated formally (parallel trends, exclusion restriction, continuity, etc.)
-- Threats acknowledged -- no "our results are robust to all concerns"
+- Material threats acknowledged and answered with design/check evidence -- do not require generic caveat lists or universal uncertainty statements
 - Estimand clearly stated (ATT, ATE, LATE, or equivalent)
 
 **Paper-type-specific:**
@@ -92,7 +92,7 @@ If a valid Distilled Style Bundle is active, also read `.claude/references/style
 - AI vocabulary (additionally, delve, foster, garner, interplay, tapestry, underscore, landscape) -- -2 per, max -10
 - Copula avoidance ("serves as" instead of "is") -- -1 per, max -5
 - Negative parallelisms ("not X but Y" overuse) -- -2 per, max -6
-- Excessive hedging beyond field norms -- -3
+- Excessive or defensive hedging beyond the claim-evidence need -- -3
 
 **Style patterns:**
 - Em dash overuse (>2 per page) -- -3
@@ -157,6 +157,7 @@ Read:
 - `.claude/references/style-bundle/STYLE_MANIFEST.md` — section-specific rule map
 - `.claude/references/style-bundle/SECTION_GRAMMARS.md` — target-section rhetorical grammar
 - `.claude/references/style-bundle/STYLE_CRITIC_CHECKS.md` — operational checks
+- `.claude/references/style-bundle/ASSERTIVENESS_POLICY.md` — anti-defensiveness overlay
 
 Check:
 - HARD_RULE compliance
@@ -170,6 +171,21 @@ Check:
 Every finding must cite a style rule ID. If companion files conflict, `STYLE_SPEC.md` wins.
 
 If `STYLE_SPEC.md` exists but required companion files are missing, report **STYLE BUNDLE INVALID** and skip 7A scoring rather than guessing.
+
+### Calibrated-confidence checks
+
+Apply `ASSERTIVENESS_POLICY.md` after the correct evidentiary band has been established.
+
+Flag:
+- caveat-first phrasing that delays a well-supported main result (DW-01 / CHK-19);
+- the same scope or identification caveat repeated across sections (DW-02 / CHK-20);
+- multiple hedges attached to one uncertainty (DW-03 / CHK-21);
+- generic "cannot rule out all concerns / other factors may remain" language without a named unresolved threat (DW-04);
+- robustness paragraphs that each end with a generic defensive tail when a check cluster can share one verdict (DW-05 / CHK-22);
+- generic limitation catalogues or apology endings in the conclusion (DW-06 / CHK-23);
+- wording systematically weaker than the evidence band already licenses (DW-07 / CHK-19).
+
+Do not require a limitation merely to make prose sound cautious. Do not deduct for direct causal wording when a valid causal design and the Scientific Style claim-evidence rules license it.
 
 ### Distilled corpus-specific checks
 

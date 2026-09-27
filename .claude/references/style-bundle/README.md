@@ -14,6 +14,7 @@ Required files:
 - `CLAIM_EVIDENCE_RULES.md` — evidence-to-claim licensing and epistemic calibration
 - `FORBIDDEN_PATTERNS.md` — corpus-supported anti-patterns / critic defaults
 - `STYLE_CRITIC_CHECKS.md` — executable critic questions
+- `ASSERTIVENESS_POLICY.md` — anti-defensiveness overlay for qualification placement and repetition
 
 Optional:
 
@@ -31,7 +32,8 @@ Writer reads `STYLE_MANIFEST.md` first, then loads:
 2. only the target section's rules from `STYLE_SPEC.md`;
 3. the matching section grammar;
 4. relevant anti-patterns and critic checks;
-5. examples only when useful.
+5. `ASSERTIVENESS_POLICY.md` to prevent repeated/stacked defensive caveats;
+6. examples only when useful.
 
 This avoids filling the context window with unrelated style material.
 
@@ -41,9 +43,10 @@ Key corpus policies include:
 - results report numerical evidence before interpretation and translate headline magnitudes;
 - empirical strategy contains identification objects/assumptions/checks, not estimated readouts;
 - heterogeneity and gradients remain suggestive unless a direct channel-specific test is present;
-- robustness follows perturbation → readout → scope verdict;
-- data provenance/restrictions are disclosed before the object carries evidentiary weight;
-- conclusions separate verdict from scope and do not introduce new estimands.
+- robustness follows perturbation → readout → scope verdict at the level of a logical check unit; related checks may share one verdict;
+- data provenance/material restrictions are disclosed before the object carries evidentiary weight, while minor implementation details may be grouped;
+- conclusions lead with the answer and do not introduce new estimands; a separate limitation paragraph is not mandatory;
+- calibrated claims should not be weakened below the strength already licensed by the design/checks.
 
 ## How Writer-Critic uses the bundle
 
@@ -78,9 +81,10 @@ The bundle never upgrades an empirical claim. Priority is:
 4. `HARD-*` rules in `STYLE_SPEC.md`;
 5. working-paper-format rules;
 6. section grammars and `DEF-*` defaults;
-7. personal voice;
-8. generic Clo-Author templates;
-9. `OPT-*` preferences and examples.
+7. `ASSERTIVENESS_POLICY.md` for qualification frequency/placement within those constraints;
+8. personal voice;
+9. generic Clo-Author templates;
+10. `OPT-*` preferences and examples.
 
 Personal voice may choose among permitted stylistic variants, but it cannot override evidentiary calibration.
 

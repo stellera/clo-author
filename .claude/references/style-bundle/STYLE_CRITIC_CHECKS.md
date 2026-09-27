@@ -8,7 +8,7 @@
 - **CHK-07** Does the empirical-strategy section report any estimated quantity or magnitude? Flag and move to results.
 - **CHK-08** Does each identifying assumption have a named implication, institutional support or adjacent check? Flag bare assertions.
 - **CHK-09** Is a threat raised and then left unanswered within the section or an adjacent one? Flag.
-- **CHK-10** Does each robustness paragraph name what was changed, report the readout at main scale, and state what the outcome bounds? Flag readouts without scope verdicts.
+- **CHK-10** Does each logical robustness-check unit name what was changed, report the readout at main scale, and state what the outcome bounds? Related specifications addressing the same threat may share one scope verdict; do not require a defensive verdict sentence after every paragraph.
 - **CHK-11** Does the robustness section introduce a new claim, mechanism or rival not already supported? Flag.
 - **CHK-12** Are hedges distributed evenly across a section rather than concentrated on reach, interpretation and open questions? Flag hedged documented facts and unhedged generalizations.
 - **CHK-13** Is any number, restriction or coverage gap disclosed only after it has been used as evidence? Flag forward references to unpublished provenance.
@@ -17,3 +17,8 @@
 - **CHK-16** Are intensifying verbs (prove, demonstrate, establish, conclusively) used where a check or design label should carry the force? Flag in empirical prose.
 - **CHK-17** Does the abstract contain citations, a battery of coefficients, or a generalization the body does not warrant? Flag.
 - **CHK-18** Is there one dominant argumentative job per paragraph? Flag paragraphs whose sentence moves split across two unrelated jobs without a transition.
+- **CHK-19** Does a well-supported claim begin with a generic caveat or use a weaker evidentiary band than the named warrant licenses? Flag caveat-first writing and systematic underclaiming; do not strengthen beyond `CLAIM_EVIDENCE_RULES.md`.
+- **CHK-20** Is the same scope, identification or external-validity caveat fully repeated in multiple sections? Flag qualification duplication and keep one full statement at the first material inferential point.
+- **CHK-21** Does a single inferential step carry multiple lexical hedges (e.g. may + perhaps + consistent with + cannot rule out)? Flag hedge stacking and retain the narrowest sufficient qualifier.
+- **CHK-22** Does robustness prose append generic universal disclaimers or a separate scope verdict after every specification even when several checks address the same threat? Flag defensive tails; allow one bounded verdict per logical check unit.
+- **CHK-23** Does the conclusion contain a generic limitation catalogue, end on an apology, or include caveats that do not materially change interpretation? Flag and compress; a separate limitation paragraph is not required.

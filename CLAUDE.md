@@ -76,10 +76,11 @@ Load:
 1. `STYLE_MANIFEST.md`
 2. relevant rule IDs from `STYLE_SPEC.md`
 3. `CLAIM_EVIDENCE_RULES.md`
-4. target-section grammar from `SECTION_GRAMMARS.md`
-5. relevant anti-patterns/checks
+4. `ASSERTIVENESS_POLICY.md` — calibrated confidence: claim-first, non-duplicative qualification, no defensive underclaiming
+5. target-section grammar from `SECTION_GRAMMARS.md`
+6. relevant anti-patterns/checks
 
-This layer governs claim strength, evidence order, rhetorical architecture, mechanism language, robustness logic, and section discipline.
+This layer governs claim strength, evidence order, rhetorical architecture, mechanism language, robustness logic, and section discipline. Its assertiveness overlay prevents correct epistemic caution from becoming repetitive defensive prose: the strongest evidence-licensed claim should be stated directly, with qualifications limited to material dimensions and stated once.
 
 ### Layer 2 — Elite Economics Voice
 
@@ -99,7 +100,7 @@ This layer governs linguistic realization: research-agent syntax, verb choice, m
 
 Conflict precedence:
 
-**verified evidence/results > content invariants/identification > Scientific Style claim-evidence + HARD rules > working-paper format > Scientific Style strong defaults/section grammar > Elite Voice EV-SIG > Elite Voice EV-DEF > personal voice > optional styles/examples > generic templates.**
+**verified evidence/results > content invariants/identification > Scientific Style claim-evidence + HARD rules > working-paper format > Scientific Style strong defaults/section grammar > assertiveness policy (qualification placement only) > Elite Voice EV-SIG > Elite Voice EV-DEF > personal voice > optional styles/examples > generic templates.**
 
 Never imitate recognizable wording or signature phrases from any source scholar. The Elite Voice layer transfers ensemble writing mechanisms, not author identity.
 

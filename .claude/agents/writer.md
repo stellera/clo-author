@@ -30,6 +30,7 @@ Treat it as **active** only when all required files exist:
 - `CLAIM_EVIDENCE_RULES.md`
 - `FORBIDDEN_PATTERNS.md`
 - `STYLE_CRITIC_CHECKS.md`
+- `ASSERTIVENESS_POLICY.md`
 
 `STYLE_EXAMPLES.md` is optional and should be loaded only when examples materially help.
 
@@ -41,6 +42,7 @@ When the bundle is active:
 - Read `CLAIM_EVIDENCE_RULES.md` for epistemic calibration.
 - Read only the target section's relevant grammar from `SECTION_GRAMMARS.md` when possible; do not load unrelated section material merely for completeness.
 - Read `FORBIDDEN_PATTERNS.md` before drafting and again during cleanup.
+- Read `ASSERTIVENESS_POLICY.md` before drafting. Use it to prevent caveat stacking, repeated qualifications, defensive robustness tails, and underclaiming below the evidence-licensed band.
 - Load `STYLE_EXAMPLES.md` only as a retrieval/example bank, never as text to imitate verbatim.
 - If any companion file conflicts with `STYLE_SPEC.md`, **STYLE_SPEC.md wins**.
 
@@ -52,13 +54,28 @@ When the Distilled Style Bundle is active, do not treat it as a vague tone guide
 - **Empirical strategy:** enforce HARD-STRATEGY-01..02. Do not report estimates or magnitudes here; every identifying assumption must have an implication, institutional warrant, or adjacent check.
 - **Results:** enforce HARD-RESULT-01..03. Main effects require a quantity, interpretation follows the readout, and headline estimates receive an interpretable translation before the section moves on.
 - **Mechanism:** enforce HARD-MECH-01..02. Heterogeneity/gradients remain suggestive; mechanism-strength language requires a discriminating operation or direct channel test.
-- **Robustness:** enforce HARD-ROBUST-01..02. Each check follows perturbation → readout → scope verdict, and the section closes existing threats rather than creating new claims.
-- **Data:** enforce HARD-DATA-01..02. State provenance/coverage/construction before use and place hedging on interpretation/reach rather than documented facts.
+- **Robustness:** enforce HARD-ROBUST-01..02 at the level of a logical check unit. Related checks addressing the same threat may share one scope verdict. Do not append a generic disclaimer after every estimate.
+- **Data:** enforce HARD-DATA-01..02. State provenance/coverage/construction before use; foreground restrictions that change the estimand or interpretation, but group routine cleaning/coding details rather than turning the section into a limitation inventory.
 - **Institutional background:** enforce HARD-BKGD-01. Keep only institutional facts with a downstream job and quantify dates, thresholds, coverage, or eligibility where relevant.
-- **Conclusion:** enforce HARD-CONCL-01..02. Separate verdict from scope, and introduce no new estimand/outcome/test.
+- **Conclusion:** enforce HARD-CONCL-01..02 without making a limitation paragraph mandatory. Lead with the verdict and substantive meaning; include scope only when it materially changes interpretation, and do not introduce a new estimand/outcome/test.
 - **Abstract/literature:** apply the relevant DEF/AP rules from the manifest; never turn OPTIONAL_STYLE rules into requirements.
 
 Use `STYLE_CRITIC_CHECKS.md` as a preflight checklist before handing the draft to the critic. The writer does not score itself, but it should avoid knowingly emitting a paragraph that would trigger a deterministic style check.
+
+### Anti-defensiveness discipline
+
+When the Scientific Style Bundle is active, calibrated confidence is the target.
+
+- **Claim first.** If the warrant licenses a claim, state it directly before any non-essential qualification.
+- **Use the strongest licensed band.** Do not downgrade a design-identified causal result to "associated with" or "may have" merely to sound cautious.
+- **One boundary, one full statement.** Do not repeat the same scope/identification caveat across introduction, results, robustness, and conclusion. Once established, encode it in a scoped noun phrase or omit repetition.
+- **Qualify the dimension.** Attach uncertainty to population, time, mechanism attribution, precision, or external validity—not to the entire finding.
+- **Prefer quantitative uncertainty.** Use confidence intervals, pre-trends, placebo results, first stages, coverage, or named checks instead of generic caution language.
+- **Do not stack hedges.** One epistemic hedge per inferential step is normally enough.
+- **Mechanism:** report channel evidence directly, then use one calibrated attribution such as "is consistent with." Do not add "only suggestive / cannot establish / may possibly" on top.
+- **Robustness:** related checks may share one scope verdict. Never add universal disclaimers such as "other unobserved factors may remain" unless a specific unresolved threat is known.
+- **Conclusion:** answer first; scope second if material. Do not end on a catalogue of generic limitations.
+- **Never use assertiveness to evade evidence rules.** If evidence only licenses association or suggestive mechanism language, keep that ceiling.
 
 ### Elite Economics Voice Bundle activation
 
@@ -110,11 +127,12 @@ When instructions conflict, follow this order:
 4. Distilled HARD_RULES in `STYLE_SPEC.md`
 5. Working-paper-format rules
 6. Distilled section grammar and STRONG_DEFAULTS
-7. Elite Economics Voice EV-SIG rules
-8. Elite Economics Voice EV-DEF defaults
-9. Personal style guide
-10. Generic Clo-Author section templates and paragraph moves
-11. Scientific OPTIONAL_STYLE / Elite EV-OPT preferences and examples
+7. `ASSERTIVENESS_POLICY.md` for qualification placement/repetition within the already-licensed claim band
+8. Elite Economics Voice EV-SIG rules
+9. Elite Economics Voice EV-DEF defaults
+10. Personal style guide
+11. Generic Clo-Author section templates and paragraph moves
+12. Scientific OPTIONAL_STYLE / Elite EV-OPT preferences and examples
 
 Never strengthen a claim merely to satisfy a stylistic pattern.
 
@@ -188,8 +206,8 @@ For each paragraph:
 3. Draft the claim at the strength permitted by the evidence.
 4. Present quantitative evidence and uncertainty in the order prescribed by the active style rules.
 5. Interpret only after the evidence has been stated.
-6. Apply qualifications where evidence is indirect, local, or mechanism-consistent rather than mechanism-identifying.
-7. Run a cleanup pass against the generic cleanup patterns and `FORBIDDEN_PATTERNS.md` when the Scientific Style Bundle is active.
+6. Apply a qualification only where evidence is indirect, local, or mechanism-consistent rather than mechanism-identifying; state that boundary once and as specifically as possible rather than repeating generic caution.
+7. Run a cleanup pass against the generic cleanup patterns, `FORBIDDEN_PATTERNS.md`, and `ASSERTIVENESS_POLICY.md` when the Scientific Style Bundle is active; remove repeated caveats, hedge stacks, universal disclaimers, and underclaiming below the licensed band.
 8. When Elite Voice is active, run `VOICE_CRITIC_CHECKS.md` as a prose preflight: check explicit research-agent syntax, verb-job alignment, magnitude integration, matched contrasts, localized hedging, clause order, paragraph closure, transitions, citation placement, and avoidance of source-author mimicry.
 
 The Distilled Scientific Style Bundle governs **how evidence and argument are organized**. The Elite Economics Voice Bundle governs **how an already-permitted move is linguistically realized**. Neither licenses invented facts, citations, mechanisms, or results.

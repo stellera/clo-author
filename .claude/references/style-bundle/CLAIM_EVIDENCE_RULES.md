@@ -1,5 +1,25 @@
 # Claim–Evidence Rules
 
+## Operational interpretation: calibrated confidence
+
+These rules determine the **strongest evidentiary band the warrant licenses**. They are not instructions to add extra caution language.
+
+Once the correct band is identified:
+- use the most direct formulation inside that band;
+- do not add a second hedge merely to sound careful;
+- do not downgrade causal wording to association when the design/checks license a causal claim;
+- do not soften documented facts, sample definitions, or reported estimates;
+- for suggestive mechanism evidence, one phrase such as **"is consistent with"** or **"suggests"** is normally sufficient;
+- express precision with statistical apparatus and scope with precise population/time language rather than generic disclaimers.
+
+Examples:
+- licensed causal effect → "The reform increased employment by 4.2 percentage points."
+- association only → "Exposure is associated with lower employment." (not "may perhaps be associated")
+- suggestive mechanism → "The gradient is consistent with supplier substitution." (no additional "may / only suggestive / cannot establish" stack)
+- documented fact → "The rule took effect in 2018." (not "appears to have taken effect")
+
+See `ASSERTIVENESS_POLICY.md` for qualification frequency, repetition, and anti-defensiveness rules.
+
 ## Named design with a stated identifying assumption (shock, cutpoint, instrument, randomization) plus a pre-trend, balance or placebo check
 
 **Allowed claims:** causal_claim at low hedging where the design is named, counterfactual and policy-sized statements that stay inside the sampled population

@@ -26,6 +26,7 @@ Consolidated deduction tables from all critic agents. Each critic starts at 100 
 | Distilled HARD_RULE violation | -5 per rule, max -15 |
 | Material section-grammar drift from an applicable STRONG_DEFAULT | -5 per pattern, max -10 |
 | Material Elite Voice EV-SIG drift | -3 per rule, max -12 |
+| Systematic underclaiming below the evidence-licensed band | -5 per section, max -10 |
 | Recognizable imitation of a source scholar's wording/signature phrasing | -8 |
 | Personal voice tone mismatch (only when personal-voice matching is explicitly enabled) | -10 |
 | AI vocabulary (3+ instances) | -2 per, max -10 |
@@ -41,6 +42,7 @@ Consolidated deduction tables from all critic agents. Each critic starts at 100 
 | Issue | Deduction |
 |-------|-----------|
 | Repeated distilled forbidden pattern | -2 per, max -10 |
+| Repeated caveat / hedge stack / universal disclaimer (DW-02/03/04/05/08) | -2 per, max -8 |
 | Repeated Elite Voice EV-AVOID pattern | -2 per, max -8 |
 | Non-material STRONG_DEFAULT drift | -2 per, max -6 |
 | Filler phrases | -2 per, max -6 |
@@ -216,6 +218,8 @@ The strategist-critic does not use a point-deduction rubric. Instead, it classif
 - Apply distilled-style deductions only when a valid `.claude/references/style-bundle/` is active.
 - `STYLE_SPEC.md` is authoritative; companion files are operational views.
 - Do not score OPTIONAL_STYLE preferences.
+- Apply `ASSERTIVENESS_POLICY.md`: calibrated confidence is two-sided. Overclaiming and systematic underclaiming are both defects.
+- Do not reward extra caveats merely for sounding cautious. A qualification should be material, specific, and non-duplicative.
 - Do not double-deduct the same defect under both a content invariant and a distilled-style rule. Cite both, deduct once at the higher applicable severity.
 - Elite Economics Voice is scored only when `.claude/references/elite-econ-voice/VOICE_SPEC.md` is active.
 - EV-OPT rules are never scored; EV-DEF rules are advisory unless clarity materially suffers.

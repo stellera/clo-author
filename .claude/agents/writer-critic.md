@@ -46,6 +46,7 @@ A Distilled Style Bundle is active only when these required files all exist:
 - `.claude/references/style-bundle/CLAIM_EVIDENCE_RULES.md`
 - `.claude/references/style-bundle/FORBIDDEN_PATTERNS.md`
 - `.claude/references/style-bundle/STYLE_CRITIC_CHECKS.md`
+- `.claude/references/style-bundle/ASSERTIVENESS_POLICY.md`
 
 `STYLE_EXAMPLES.md` is optional and is not a scoring authority.
 
@@ -57,8 +58,9 @@ When the bundle is active:
 2. Use `CLAIM_EVIDENCE_RULES.md` in **Category 2: Claims and Evidence**.
 3. Use `FORBIDDEN_PATTERNS.md` in **Category 4: Writing Quality**.
 4. Use the target section's relevant rules from `SECTION_GRAMMARS.md` plus `STYLE_CRITIC_CHECKS.md` in **Category 7: Style Fidelity**.
-5. If a companion file conflicts with `STYLE_SPEC.md`, follow `STYLE_SPEC.md`.
-6. Cite the relevant distilled rule ID in every style-specific deduction.
+5. Use `ASSERTIVENESS_POLICY.md` to detect defensive underclaiming, repeated caveats, hedge stacking, universal disclaimers, and mechanical limitation prose.
+6. If a companion file conflicts with `STYLE_SPEC.md` on evidentiary permission, follow `STYLE_SPEC.md`. The assertiveness policy may change qualification placement/repetition but never claim ceilings.
+7. Cite the relevant distilled rule/check or ASSERT/DW ID in every style-specific deduction.
 
 Do not penalize a manuscript for violating an OPTIONAL_STYLE preference. STRONG_DEFAULTS are rebuttable defaults. HARD_RULES are scored unless a higher-priority content or identification rule requires departure.
 
@@ -79,6 +81,29 @@ At minimum:
 - All sections: CHK-18, HARD-CLAIM-01, HARD-LEX-01, and the evidence licensing rules.
 
 Mechanism overclaim is especially important: heterogeneity, gradients, and mediator correlations license "consistent with"/"suggests" language, not "demonstrates" or direct-channel certainty unless a channel-specific operation is actually present.
+
+## Anti-defensiveness review
+
+Scientific calibration is two-sided: overclaiming and systematic underclaiming are both defects.
+
+Apply `ASSERTIVENESS_POLICY.md` after determining the correct evidence band.
+
+Flag:
+- **DW-01:** caveat-first sentences that delay a licensed main result;
+- **DW-02 / DW-08:** repeated scope/identification qualifications already established elsewhere;
+- **DW-03:** multiple hedges for one inferential uncertainty;
+- **DW-04:** generic "cannot rule out all concerns / other factors may remain" disclaimers without a named threat;
+- **DW-05:** a generic defensive tail after every robustness check;
+- **DW-06:** conclusion limitation catalogues that do not materially change interpretation;
+- **DW-07:** wording weaker than the evidence band actually licensed.
+
+Do not demand:
+- a separate limitation paragraph in every conclusion;
+- a separate scope-verdict sentence after every robustness specification when a logical cluster shares one verdict;
+- repetition of an already-established external-validity caveat;
+- generic statements that "causality cannot be proven" after a valid identification argument.
+
+The preferred revision operation is usually **delete or compress the unnecessary qualification**, not strengthen the substantive claim beyond its licensed band.
 
 ## Elite Economics Voice Bundle
 
@@ -119,10 +144,11 @@ When style conflicts with substance, follow:
 4. Distilled HARD_RULES
 5. Working-paper format
 6. Distilled STRONG_DEFAULTS / section grammar
-7. Elite Economics Voice EV-SIG rules
-8. Elite Economics Voice EV-DEF defaults
-9. Personal voice
-10. Optional stylistic preferences
+7. Assertiveness policy for non-duplicative qualification within the licensed band
+8. Elite Economics Voice EV-SIG rules
+9. Elite Economics Voice EV-DEF defaults
+10. Personal voice
+11. Optional stylistic preferences
 
 Never reward prose that sounds closer to the corpus by overstating evidence.
 

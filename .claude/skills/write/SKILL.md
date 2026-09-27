@@ -34,7 +34,7 @@ Before drafting, read all available context:
 6. Scan `paper/tables/` and `paper/figures/` for generated output
 7. Read `quality_reports/results_summary.md` if it exists (from Coder)
 8. Check `.claude/references/style-bundle/STYLE_SPEC.md`. If present, validate the required Style Bundle files and load the bundle according to the Writer's Style Calibration Stack.
-9. For an active Scientific Style Bundle, read `STYLE_MANIFEST.md`, then load only its cross-cutting and target-section rule IDs from `STYLE_SPEC.md`, plus `CLAIM_EVIDENCE_RULES.md`, the target section's grammar, relevant anti-patterns/checks, and `STYLE_EXAMPLES.md` only when examples are needed.
+9. For an active Scientific Style Bundle, read `STYLE_MANIFEST.md`, then load only its cross-cutting and target-section rule IDs from `STYLE_SPEC.md`, plus `CLAIM_EVIDENCE_RULES.md`, `ASSERTIVENESS_POLICY.md`, the target section's grammar, relevant anti-patterns/checks, and `STYLE_EXAMPLES.md` only when examples are needed.
 10. Check `.claude/references/elite-econ-voice/VOICE_SPEC.md`. If present, validate the Elite Voice Bundle, read `VOICE_MANIFEST.md`, and load only the target section's EV-SIG/EV-DEF/EV-AVOID rules plus the relevant move/rhythm/transition/citation resources.
 11. Read `.claude/references/personal-style-guide.md` only if personal-voice matching is explicitly requested or enabled. When Elite Economics Voice is active, do not apply personal voice by default.
 
@@ -77,10 +77,10 @@ When the bundle is active, run the section-specific checks before the general se
 - Strategy: no result/magnitude readouts; each assumption has an implication/check.
 - Results: every headline effect has a quantity and translation; interpretation follows the readout.
 - Mechanism: gradients/heterogeneity remain suggestive unless a direct discriminating test exists.
-- Robustness: perturbation → readout → scope verdict; no new substantive claim.
-- Data/background: provenance and restrictions disclosed before use; documented facts stated without decorative hedging.
-- Conclusion: verdict and scope separated; no new estimand or test.
-- All sections: one dominant argumentative job per paragraph; no intensifying causal verbs where the warrant should carry the force.
+- Robustness: perturbation → readout → bounded scope verdict at the level of a logical check unit; related checks may share one verdict and should not each end with a generic disclaimer.
+- Data/background: provenance and material restrictions disclosed before use; minor cleaning/coding details may be grouped; documented facts stated without decorative hedging.
+- Conclusion: answer first; scope/limitation only when material; no new estimand or test; do not require a standalone limitation paragraph.
+- All sections: one dominant argumentative job per paragraph; no intensifying causal verbs where the warrant should carry the force; no caveat-first writing, repeated qualification, hedge stacking, or systematic underclaiming below the licensed evidence band.
 
 #### 4B. Elite Voice Preflight
 
@@ -109,13 +109,14 @@ Before presenting the draft:
 - [ ] All `\cite{}` keys exist in `Bibliography_base.bib`
 - [ ] Introduction contribution paragraph names specific papers
 - [ ] Effect sizes stated with units
-- [ ] No banned hedging phrases
+- [ ] No banned hedging phrases or hedge stacks; no generic caution language where a design/check/precision statement can carry the uncertainty
 - [ ] Notation consistent throughout
 - [ ] All tables/figures referenced actually exist in `paper/tables/` or `paper/figures/`
 - [ ] Results narrated correctly for output type (tables, event study figures, counterfactuals)
 - [ ] Style calibration available: valid Scientific Style Bundle, Elite Economics Voice Bundle, and/or populated personal style guide
 - [ ] If Distilled Style Bundle is active, target-section grammar and claim-evidence rules were applied
 - [ ] If Distilled Style Bundle is active, no HARD_RULE or distilled forbidden-pattern violations remain
+- [ ] If Scientific Style is active, ASSERTIVENESS_POLICY applied: claim-first phrasing, one full statement per material boundary, no universal disclaimers, and no underclaiming below the licensed band
 - [ ] If Elite Voice is active, no material EV-SIG or repeated EV-AVOID violations remain
 - [ ] Elite Voice has not strengthened any claim beyond Scientific Style permissions
 - [ ] Claim-source map produced for all numerical claims (`quality_reports/claim_source_map_{project}.md`)
