@@ -1,5 +1,7 @@
 # Scientific Writing Style Specification
 
+> **Clo-Author operational note.** The rules below are corpus-derived and retain their original support statements. When several caution/qualification rules apply at once, use `ASSERTIVENESS_POLICY.md` to compose them: state the strongest evidence-licensed claim directly, qualify only material dimensions, avoid repeating the same caveat, and do not reward defensive underclaiming. The overlay may compress or relocate qualification but never raises a claim above the ceiling defined here or in `CLAIM_EVIDENCE_RULES.md`.
+
 
 Version: `1.0.0`
 
