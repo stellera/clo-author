@@ -8,7 +8,7 @@
 - **CHK-07** Does the empirical-strategy section report any estimated quantity or magnitude? Flag and move to results.
 - **CHK-08** Does each identifying assumption have a named implication, institutional support or adjacent check? Flag bare assertions.
 - **CHK-09** Is a threat raised and then left unanswered within the section or an adjacent one? Flag.
-- **CHK-10** Does each robustness paragraph name what was changed, report the readout at main scale, and state what the outcome bounds? Flag readouts without scope verdicts.
+- **CHK-10** Does each logical robustness-check unit name what was changed, report the readout at main scale, and state what the outcome bounds? Related specifications addressing the same threat may share one scope verdict; do not require a defensive verdict sentence after every paragraph.
 - **CHK-11** Does the robustness section introduce a new claim, mechanism or rival not already supported? Flag.
 - **CHK-12** Are hedges distributed evenly across a section rather than concentrated on reach, interpretation and open questions? Flag hedged documented facts and unhedged generalizations.
 - **CHK-13** Is any number, restriction or coverage gap disclosed only after it has been used as evidence? Flag forward references to unpublished provenance.
