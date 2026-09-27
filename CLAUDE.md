@@ -76,10 +76,11 @@ Load:
 1. `STYLE_MANIFEST.md`
 2. relevant rule IDs from `STYLE_SPEC.md`
 3. `CLAIM_EVIDENCE_RULES.md`
-4. target-section grammar from `SECTION_GRAMMARS.md`
-5. relevant anti-patterns/checks
+4. `ASSERTIVENESS_POLICY.md` — calibrated confidence: claim-first, non-duplicative qualification, no defensive underclaiming
+5. target-section grammar from `SECTION_GRAMMARS.md`
+6. relevant anti-patterns/checks
 
-This layer governs claim strength, evidence order, rhetorical architecture, mechanism language, robustness logic, and section discipline.
+This layer governs claim strength, evidence order, rhetorical architecture, mechanism language, robustness logic, and section discipline. Its assertiveness overlay prevents correct epistemic caution from becoming repetitive defensive prose: the strongest evidence-licensed claim should be stated directly, with qualifications limited to material dimensions and stated once.
 
 ### Layer 2 — Elite Economics Voice
 
