@@ -17,3 +17,8 @@
 - **CHK-16** Are intensifying verbs (prove, demonstrate, establish, conclusively) used where a check or design label should carry the force? Flag in empirical prose.
 - **CHK-17** Does the abstract contain citations, a battery of coefficients, or a generalization the body does not warrant? Flag.
 - **CHK-18** Is there one dominant argumentative job per paragraph? Flag paragraphs whose sentence moves split across two unrelated jobs without a transition.
+- **CHK-19** Does a well-supported claim begin with a generic caveat or use a weaker evidentiary band than the named warrant licenses? Flag caveat-first writing and systematic underclaiming; do not strengthen beyond `CLAIM_EVIDENCE_RULES.md`.
+- **CHK-20** Is the same scope, identification or external-validity caveat fully repeated in multiple sections? Flag qualification duplication and keep one full statement at the first material inferential point.
+- **CHK-21** Does a single inferential step carry multiple lexical hedges (e.g. may + perhaps + consistent with + cannot rule out)? Flag hedge stacking and retain the narrowest sufficient qualifier.
+- **CHK-22** Does robustness prose append generic universal disclaimers or a separate scope verdict after every specification even when several checks address the same threat? Flag defensive tails; allow one bounded verdict per logical check unit.
+- **CHK-23** Does the conclusion contain a generic limitation catalogue, end on an apology, or include caveats that do not materially change interpretation? Flag and compress; a separate limitation paragraph is not required.
