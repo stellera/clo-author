@@ -78,10 +78,10 @@ The bundle never upgrades an empirical claim. Priority is:
 1. actual data, code output, tables, figures, and verified citations;
 2. content invariants and identification fidelity;
 3. `CLAIM_EVIDENCE_RULES.md`;
-4. `ASSERTIVENESS_POLICY.md` for qualification frequency/placement;
-5. `HARD-*` rules in `STYLE_SPEC.md`;
-6. working-paper-format rules;
-7. section grammars and `DEF-*` defaults;
+4. `HARD-*` rules in `STYLE_SPEC.md`;
+5. working-paper-format rules;
+6. section grammars and `DEF-*` defaults;
+7. `ASSERTIVENESS_POLICY.md` for qualification frequency/placement within those constraints;
 8. personal voice;
 9. generic Clo-Author templates;
 10. `OPT-*` preferences and examples.
