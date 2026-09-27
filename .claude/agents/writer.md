@@ -127,11 +127,12 @@ When instructions conflict, follow this order:
 4. Distilled HARD_RULES in `STYLE_SPEC.md`
 5. Working-paper-format rules
 6. Distilled section grammar and STRONG_DEFAULTS
-7. Elite Economics Voice EV-SIG rules
-8. Elite Economics Voice EV-DEF defaults
-9. Personal style guide
-10. Generic Clo-Author section templates and paragraph moves
-11. Scientific OPTIONAL_STYLE / Elite EV-OPT preferences and examples
+7. `ASSERTIVENESS_POLICY.md` for qualification placement/repetition within the already-licensed claim band
+8. Elite Economics Voice EV-SIG rules
+9. Elite Economics Voice EV-DEF defaults
+10. Personal style guide
+11. Generic Clo-Author section templates and paragraph moves
+12. Scientific OPTIONAL_STYLE / Elite EV-OPT preferences and examples
 
 Never strengthen a claim merely to satisfy a stylistic pattern.
 
