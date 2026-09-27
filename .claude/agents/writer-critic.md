@@ -144,10 +144,11 @@ When style conflicts with substance, follow:
 4. Distilled HARD_RULES
 5. Working-paper format
 6. Distilled STRONG_DEFAULTS / section grammar
-7. Elite Economics Voice EV-SIG rules
-8. Elite Economics Voice EV-DEF defaults
-9. Personal voice
-10. Optional stylistic preferences
+7. Assertiveness policy for non-duplicative qualification within the licensed band
+8. Elite Economics Voice EV-SIG rules
+9. Elite Economics Voice EV-DEF defaults
+10. Personal voice
+11. Optional stylistic preferences
 
 Never reward prose that sounds closer to the corpus by overstating evidence.
 
